@@ -1,14 +1,16 @@
-// Setup empty JS object to act as endpoint for all routes
-let projectData = {};
+// Set up dotenv
+const dotenv = require('dotenv')
+dotenv.config()
 
-// Require Express to run server and routes
-const express = require('express');
+// Require dependencies
+const fetch = require('node-fetch')
+const path = require('path')
+const express = require('express')
 
 // Start up an instance of app
-const app = express();
+const app = express()
 
-/* Middleware*/
-//Here we are configuring express to use body-parser as middle-ware.
+// Configure express to use body-parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -20,15 +22,17 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('dist'));
 
-// Setup Server
-const port = 3000;
+app.get('/', function (req, res) {
+    res.sendFile('dist/index.html')
+})
 
-const listening = () => {
-    console.log('server running');
-    console.log(`running on localhost: ${port}`);
-}
+// Set up server
+app.listen(8081, function () {
+    console.log('Example app listening on port 8081!')
+})
 
-const server = app.listen(port, listening)
+// Setup empty JS object to act as endpoint for all routes
+let projectData = {};
 
 // GET route
 const sendData = (req, res) => {
