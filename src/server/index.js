@@ -27,8 +27,8 @@ app.get('/', function (req, res) {
 })
 
 // Set up server
-app.listen(3000, function () {
-    console.log('Example app listening on port 8081!')
+app.listen(3001, function () {
+    console.log('Example app listening on port 3001!')
 })
 
 // Setup empty JS object to act as endpoint for all routes
