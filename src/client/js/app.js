@@ -2,16 +2,18 @@
 const performAction = e => {
     e.preventDefault()
 
-    let dest = document.getElementById('destination').value
+    let destination = document.getElementById('destination').value
     let travelDate = document.getElementById('date').value
     let todaysDate = Date.now()
+    let days = calcDays(todaysDate, travelDate)
 
     const data = {
-        'destination': dest
+        'destination': destination,
+        'days': days
     }
 
     postData(data)
-    calcDays(todaysDate, travelDate)
+    
 }
 
 // Add eventListener to submit button
@@ -37,6 +39,7 @@ const postData = async (data) => {
     }
 }
 
+// Calculate countdown
 const calcDays = (start, end) => {
     const startDate = new Date(start)
     const endDate = new Date(end)

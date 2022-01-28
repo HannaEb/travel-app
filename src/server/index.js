@@ -40,19 +40,35 @@ const weatherbitKey = process.env.WEATHERBIT_KEY
 
 // Declare API URLs
 const geonamesURL = 'http://api.geonames.org/searchJSON?q='
-const weatherbitURL = 'http://api.weatherbit.io/v2.0/current?'
+const weatherbitCurrentURL = 'http://api.weatherbit.io/v2.0/current?'
+const weatherbitForecastURL = 'http://api.weatherbit.io/v2.0/forecast/daily?'
 
 const postData = (req, res) => {
     const destination = req.body.destination
-    
+    const days = req.body.days
+    let day
+
+    if (days <= 7) {
+        day = 0
+    } else {
+        day = days
+    }
+
     fetchData(geonamesURL+destination+'&maxRows=1&username='+geonamesKey)
     .then(data => {
         projectData['country'] = data.geonames[0].countryName
         
-        return fetchData(weatherbitURL+'lat='+data.geonames[0].lat+'&lon='+data.geonames[0].lng+'&key='+weatherbitKey)
+        if (days <= 7) {
+            return fetchData(weatherbitCurrentURL+'lat='+data.geonames[0].lat+'&lon='+data.geonames[0].lng+'&key='+weatherbitKey)
+        } else {
+            return fetchData(weatherbitForecastURL+'lat='+data.geonames[0].lat+'&lon='+data.geonames[0].lng+'&key='+weatherbitKey)
+        }
+        
     })
     .then(data => {
-        projectData['description'] = data.data[0].weather.description
+        console.log(data)
+        projectData['description'] = data.data[day].weather.description
+        projectData['temperature'] = data.data[day].temp
     })
     .then(() => {
         res.send(projectData)
@@ -71,45 +87,6 @@ const fetchData = async (url) => {
         console.log('error', error)
     }
 }
-
-
-
-
-
-// Invoke POST request
-// const postData = (req, res) => {
-//     const destination = req.body.destination
-//     const geonamesURL = 'http://api.geonames.org/searchJSON?q='+destination+'&maxRows=1&username='+geonamesKey
-
-//     fetchData(geonamesURL)
-//     .then(data => {
-//         projectData = {
-//             country: data.geonames[0].countryName,
-//             latitude: data.geonames[0].lat,
-//             longitude: data.geonames[0].lng
-//         }
-//     })
-//     .then(() => {
-//         res.send(projectData)
-//     })
-// }
-
-// // POST request to API
-// const fetchData = async (url) => {
-//     const res = await fetch(url, {
-//         method: 'POST', 
-//         credentials: 'same-origin',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         }
-//     })
-//     try {
-//         const newData = await res.json()
-//         return newData
-//     } catch(error) {
-//         console.log('error', error)
-//     }
-// }
 
 // POST route 
 app.post('/postData', postData)
