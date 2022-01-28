@@ -37,19 +37,25 @@ let projectData = {};
 // Declare API key variables
 const geonamesKey = process.env.GEONAMES_KEY
 
+// Invoke POST request
 const postData = (req, res) => {
     const destination = req.body.destination
     const geonamesURL = 'http://api.geonames.org/searchJSON?q='+destination+'&maxRows=1&username='+geonamesKey
 
     fetchData(geonamesURL)
     .then(data => {
-        projectData = data
+        projectData = {
+            country: data.geonames[0].countryName,
+            latitude: data.geonames[0].lat,
+            longitude: data.geonames[0].lng
+        }
     })
     .then(() => {
         res.send(projectData)
     })
 }
 
+// POST request to API
 const fetchData = async (url) => {
     const res = await fetch(url, {
         method: 'POST', 

@@ -13,7 +13,7 @@ const performAction = e => {
 // Add eventListener to submit button
 document.getElementById('generate').addEventListener('click', performAction);
 
-// Post request
+// POST request to server
 const postData = async (data) => {
     const res = await fetch('http://localhost:3001/postData', {
         method: 'POST',
@@ -25,6 +25,7 @@ const postData = async (data) => {
     })
     try {
         const newData = await res.json();
+        newData
         console.log('Client New Data:')
         console.log(newData)
     } catch(error) {
