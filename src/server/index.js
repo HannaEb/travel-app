@@ -34,19 +34,37 @@ app.listen(3001, function () {
 // Setup empty JS object to act as endpoint for all routes
 let projectData = {};
 
-// GET route
-const sendData = (req, res) => {
-    res.send(projectData)
+// Declare API key variables
+const geonamesKey = process.env.GEONAMES_KEY
+
+const postData = (req, res) => {
+    const destination = req.body.destination
+    const geonamesURL = 'http://api.geonames.org/searchJSON?q='+destination+'&maxRows=1&username='+geonamesKey
+
+    fetchData(geonamesURL)
+    .then(data => {
+        projectData = data
+    })
+    .then(() => {
+        res.send(projectData)
+    })
 }
 
-app.get('/all', sendData);
-
-// POST route
-const addData = (req, res) => {
-    let newData = req.body;
-    projectData['temperature'] = newData.temperature;
-    projectData['date'] = newData.date;
-    projectData['userResponse'] = newData.userResponse;
+const fetchData = async (url) => {
+    const res = await fetch(url, {
+        method: 'POST', 
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    try {
+        const newData = await res.json()
+        return newData
+    } catch(error) {
+        console.log('error', error)
+    }
 }
 
-app.post('/add', addData);
+// POST route 
+app.post('/postData', postData)
