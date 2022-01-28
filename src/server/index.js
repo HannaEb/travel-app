@@ -36,19 +36,23 @@ let projectData = {};
 
 // Declare API key variables
 const geonamesKey = process.env.GEONAMES_KEY
+const weatherbitKey = process.env.WEATHERBIT_KEY
 
-// Invoke POST request
+// Declare API URLs
+const geonamesURL = 'http://api.geonames.org/searchJSON?q='
+const weatherbitURL = 'http://api.weatherbit.io/v2.0/current?'
+
 const postData = (req, res) => {
     const destination = req.body.destination
-    const geonamesURL = 'http://api.geonames.org/searchJSON?q='+destination+'&maxRows=1&username='+geonamesKey
-
-    fetchData(geonamesURL)
+    
+    fetchData(geonamesURL+destination+'&maxRows=1&username='+geonamesKey)
     .then(data => {
-        projectData = {
-            country: data.geonames[0].countryName,
-            latitude: data.geonames[0].lat,
-            longitude: data.geonames[0].lng
-        }
+        projectData['country'] = data.geonames[0].countryName
+        
+        return fetchData(weatherbitURL+'lat='+data.geonames[0].lat+'&lon='+data.geonames[0].lng+'&key='+weatherbitKey)
+    })
+    .then(data => {
+        projectData['description'] = data.data[0].weather.description
     })
     .then(() => {
         res.send(projectData)
@@ -58,11 +62,7 @@ const postData = (req, res) => {
 // POST request to API
 const fetchData = async (url) => {
     const res = await fetch(url, {
-        method: 'POST', 
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json',
-        }
+        method: 'GET'
     })
     try {
         const newData = await res.json()
@@ -71,6 +71,45 @@ const fetchData = async (url) => {
         console.log('error', error)
     }
 }
+
+
+
+
+
+// Invoke POST request
+// const postData = (req, res) => {
+//     const destination = req.body.destination
+//     const geonamesURL = 'http://api.geonames.org/searchJSON?q='+destination+'&maxRows=1&username='+geonamesKey
+
+//     fetchData(geonamesURL)
+//     .then(data => {
+//         projectData = {
+//             country: data.geonames[0].countryName,
+//             latitude: data.geonames[0].lat,
+//             longitude: data.geonames[0].lng
+//         }
+//     })
+//     .then(() => {
+//         res.send(projectData)
+//     })
+// }
+
+// // POST request to API
+// const fetchData = async (url) => {
+//     const res = await fetch(url, {
+//         method: 'POST', 
+//         credentials: 'same-origin',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         }
+//     })
+//     try {
+//         const newData = await res.json()
+//         return newData
+//     } catch(error) {
+//         console.log('error', error)
+//     }
+// }
 
 // POST route 
 app.post('/postData', postData)
