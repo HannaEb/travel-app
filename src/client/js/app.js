@@ -4,11 +4,10 @@ const weatherbitCurrentURL = 'http://api.weatherbit.io/v2.0/current?'
 const weatherbitForecastURL = 'http://api.weatherbit.io/v2.0/forecast/daily?'
 const pixabayURL = 'https://pixabay.com/api/?'
 
-const travelDate = document.getElementById('date').value
-
 // Declare variables
 let apiKeys = {}
 let geonamesData = {}
+let weatherbitData = {}
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -18,7 +17,17 @@ let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 const performAction = (event) => {
     event.preventDefault();
 
-    const destination = document.getElementById('destination').value  
+    const destination = document.getElementById('destination').value 
+    const travelDate = document.getElementById('date').value
+    let todaysDate = Date.now()
+    let days = calcDays(todaysDate, travelDate)
+    let day 
+
+    if (days <= 7) {
+        day = 0
+    } else {
+        day = days
+    }
 
     retrieveApiKeys()
     .then(() => {
@@ -30,10 +39,25 @@ const performAction = (event) => {
             city: data.geonames[0].name,
             country: data.geonames[0].countryName
         }
+
+        let weatherbitKey = apiKeys['weatherbitKey']
+
+        if (days <= 7) {
+            return getData(weatherbitCurrentURL+'lat='+data.geonames[0].lat+'&lon='+data.geonames[0].lng+'&key='+weatherbitKey)
+        } else {
+            return getData(weatherbitForecastURL+'lat='+data.geonames[0].lat+'&lon='+data.geonames[0].lng+'&key='+weatherbitKey)
+        }
+    })
+    .then(data => {
+        weatherbitData = {
+            description: data.data[day].weather.description,
+            temperature: data.data[day].temp
+        }
     })
     .then(() => {
         postData('http://localhost:3001/add', { 
-            geonamesData
+            geonamesData,
+            weatherbitData
         })
     })
     .then(() => updateUI());
@@ -93,6 +117,8 @@ const updateUI = async () => {
         const allData = await req.json()
         document.getElementById('city').innerHTML = allData.geonamesData.city;
         document.getElementById('country').innerHTML = allData.geonamesData.country
+        document.getElementById('description').innerHTML = allData.weatherbitData.description;
+        document.getElementById('temperature').innerHTML = allData.weatherbitData.temperature
     } catch(error) {
         console.log('error', error)
     }
