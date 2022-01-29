@@ -31,9 +31,10 @@ const postData = async (data) => {
     })
     try {
         const newData = await res.json();
-        newData
-        console.log('Client New Data:')
-        console.log(newData)
+        document.getElementById('description').innerHTML = `${newData.description}`
+        document.getElementById('temperature').innerHTML = `${newData.temperature} degrees`
+        document.getElementById('locationImage').src = `${newData.image}`
+        return newData
     } catch(error) {
         console.log('error', error)
     }
