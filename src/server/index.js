@@ -1,5 +1,16 @@
+// Set up dotenv
+const dotenv = require('dotenv')
+dotenv.config()
+
 // Setup empty JS object to act as endpoint for all routes
 let projectData = {}
+
+// Declare API key variables
+let apiKeys = {
+    geonamesKey: process.env.GEONAMES_KEY,
+    weatherbitKey: process.env.WEATHERBIT_KEY,
+    pixabayKey: process.env.PIXABAY_KEY
+}
 
 // Require Express to run server and routes
 const express = require('express')
@@ -27,6 +38,13 @@ app.get('/', function (req, res) {
 app.listen(3001, function () {
     console.log('Example app listening on port 3001!')
 })
+
+// GET API keys
+const getApiKeys = (req, res) => {
+    res.send(apiKeys)
+}
+
+app.get('/api', getApiKeys)
 
 // GET route
 const sendData = (req, res) => {

@@ -4,8 +4,10 @@ const weatherbitCurrentURL = 'http://api.weatherbit.io/v2.0/current?'
 const weatherbitForecastURL = 'http://api.weatherbit.io/v2.0/forecast/daily?'
 const pixabayURL = 'https://pixabay.com/api/?'
 
-
 const travelDate = document.getElementById('date').value
+
+// Declare variables
+let apiKeys = {}
 let geonamesData = {}
 
 // Create a new date instance dynamically with JS
@@ -17,8 +19,12 @@ const performAction = (event) => {
     event.preventDefault();
 
     const destination = document.getElementById('destination').value  
-    
-    getData(geonamesURL+destination+'&maxRows=1&username='+geonamesKey)
+
+    retrieveApiKeys()
+    .then(() => {
+        let geonamesKey = apiKeys['geonamesKey']
+        return getData(geonamesURL+destination+'&maxRows=1&username='+geonamesKey)
+    })
     .then(data => {
         geonamesData = {
             city: data.geonames[0].name,
@@ -36,13 +42,26 @@ const performAction = (event) => {
 // Event listener for action to be performed
 document.getElementById('generate').addEventListener('click', performAction);
 
+// Get API keys from server
+const retrieveApiKeys = async () => {
+    const req = await fetch('http://localhost:3001/api')
+    try {
+        const keys = await req.json()
+        apiKeys = {
+            geonamesKey: keys.geonamesKey,
+            weatherbitKey: keys.weatherbitKey,
+            pixabayKey: keys.pixabayKey
+        }
+    } catch(error) {
+        console.log('error', error)
+    }
+}
+
 // GET request to OpenWeatherMap
 const getData = async (url) => {
     const res = await fetch(url);
     try {
         const data = await res.json();
-        console.log('Client Data:')
-        console.log(data)
         return data;
     } catch(error) {
         console.log('error', error)
@@ -61,8 +80,6 @@ const postData = async (url = '', data = {}) => {
     })
     try {
         const newData = await res.json();
-        console.log('Client New Data:')
-        console.log(newData)
         return newData;
     } catch(error) {
         console.log('error', error)
@@ -74,7 +91,6 @@ const updateUI = async () => {
     const req = await fetch('http://localhost:3001/all')
     try {
         const allData = await req.json()
-        console.log(allData)
         document.getElementById('city').innerHTML = allData.geonamesData.city;
         document.getElementById('country').innerHTML = allData.geonamesData.country
     } catch(error) {
