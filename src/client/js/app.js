@@ -8,6 +8,7 @@ const pixabayURL = 'https://pixabay.com/api/?'
 let apiKeys = {}
 let geonamesData = {}
 let weatherbitData = {}
+let pixabayData = {}
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -53,18 +54,28 @@ const performAction = (event) => {
             description: data.data[day].weather.description,
             temperature: data.data[day].temp
         }
+
+        let pixabayKey = apiKeys['pixabayKey']
+
+        return getData(pixabayURL+'key='+pixabayKey+'&q='+destination+'&image-type=photo')
+    })
+    .then(data => {
+        pixabayData = {
+            image: data.hits[0].webformatURL
+        }
     })
     .then(() => {
         postData('http://localhost:3001/add', { 
             geonamesData,
-            weatherbitData
+            weatherbitData,
+            pixabayData
         })
     })
     .then(() => updateUI());
 }
 
 // Event listener for action to be performed
-document.getElementById('generate').addEventListener('click', performAction);
+document.getElementById('generate').addEventListener('click', performAction)
 
 // Get API keys from server
 const retrieveApiKeys = async () => {
@@ -115,10 +126,11 @@ const updateUI = async () => {
     const req = await fetch('http://localhost:3001/all')
     try {
         const allData = await req.json()
-        document.getElementById('city').innerHTML = allData.geonamesData.city;
+        document.getElementById('city').innerHTML = allData.geonamesData.city
         document.getElementById('country').innerHTML = allData.geonamesData.country
-        document.getElementById('description').innerHTML = allData.weatherbitData.description;
+        document.getElementById('description').innerHTML = allData.weatherbitData.description
         document.getElementById('temperature').innerHTML = allData.weatherbitData.temperature
+        document.getElementById('locationImage').src = allData.pixabayData.image
     } catch(error) {
         console.log('error', error)
     }
