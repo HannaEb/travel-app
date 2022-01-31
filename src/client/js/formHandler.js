@@ -15,7 +15,7 @@ let d = new Date();
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // Callback function
-const performAction = (event) => {
+const handleSubmit = (event) => {
     event.preventDefault();
 
     const destination = document.getElementById('destination').value 
@@ -78,7 +78,9 @@ const performAction = (event) => {
 }
 
 // Event listener for action to be performed
-document.getElementById('generate').addEventListener('click', performAction)
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('generate').addEventListener('click', handleSubmit)
+})
 
 // Get API keys from server
 const retrieveApiKeys = async () => {
@@ -149,4 +151,4 @@ const calcDays = (start, end) => {
     return days
 }
 
-export { performAction }
+export { handleSubmit }

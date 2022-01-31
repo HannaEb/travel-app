@@ -1,3 +1,3 @@
-import { performAction } from './js/app'
+import { handleSubmit } from './js/formHandler'
 
-export { performAction }
+export { handleSubmit }

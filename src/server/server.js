@@ -1,4 +1,4 @@
-// Require app.js
+// Require app
 const app = require('./index')
 
 // Set up server
