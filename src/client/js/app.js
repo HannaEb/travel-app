@@ -19,12 +19,14 @@ const performAction = (event) => {
     event.preventDefault();
 
     const destination = document.getElementById('destination').value 
-    const travelDate = document.getElementById('date').value
+    const startDate = document.getElementById('startDate').value
+    const endDate = document.getElementById('endDate').value
+    let duration = calcDays(startDate, endDate) - 1
     let todaysDate = Date.now()
-    let days = calcDays(todaysDate, travelDate)
+    let days = calcDays(todaysDate, startDate)
     let day 
 
-    if (days <= 7) {
+    if (days <= 7 || days > 16) {
         day = 0
     } else {
         day = days
@@ -66,6 +68,7 @@ const performAction = (event) => {
     })
     .then(() => {
         postData('http://localhost:3001/add', { 
+            duration,
             geonamesData,
             weatherbitData,
             pixabayData
@@ -128,6 +131,7 @@ const updateUI = async () => {
         const allData = await req.json()
         document.getElementById('city').innerHTML = allData.geonamesData.city
         document.getElementById('country').innerHTML = allData.geonamesData.country
+        document.getElementById('duration').innerHTML = allData.duration
         document.getElementById('description').innerHTML = allData.weatherbitData.description
         document.getElementById('temperature').innerHTML = allData.weatherbitData.temperature
         document.getElementById('locationImage').src = allData.pixabayData.image
@@ -142,8 +146,6 @@ const calcDays = (start, end) => {
     const endDate = new Date(end)
 
     const days = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24) + 1)
-    console.log('Days till departure:')
-    console.log(days)
     return days
 }
 

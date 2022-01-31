@@ -61,6 +61,7 @@ const addData = (req, res) => {
     projectData['geonamesData'] = newData.geonamesData
     projectData['weatherbitData'] = newData.weatherbitData
     projectData['pixabayData'] = newData.pixabayData
+    projectData['duration'] = newData.duration
 }
 
 app.post('/add', addData)
