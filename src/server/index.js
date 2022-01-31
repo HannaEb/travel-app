@@ -34,11 +34,6 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-// Set up server
-app.listen(3001, function () {
-    console.log('Example app listening on port 3001!')
-})
-
 // GET API keys
 const getApiKeys = (req, res) => {
     res.send(apiKeys)
@@ -65,3 +60,5 @@ const addData = (req, res) => {
 }
 
 app.post('/add', addData)
+
+module.exports = app
