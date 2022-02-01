@@ -12,13 +12,13 @@ A travel planner that obtains a destination and travel dates from the user, and 
 
 ## Motivation
 
-This project is part of [Udacity's Front End Developer Nanodegree program](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011)
+This project is part of [Udacity's Front End Developer Nanodegree program](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011).
 
 ## Installation Instructions
 
 ```
 $ git clone https://github.com/HannaEb/travel-app.git
-$ cd evaluate-news-nlp
+$ cd travel-app
 $ npm install
 $ npm run dev
 $ npm run build
