@@ -97,7 +97,7 @@ const retrieveApiKeys = async () => {
     }
 }
 
-// GET request to OpenWeatherMap
+// GET request
 const getData = async (url) => {
     const res = await fetch(url);
     try {
@@ -126,7 +126,7 @@ const postData = async (url = '', data = {}) => {
     }
 }
 
-// update UI
+// Update UI
 const updateUI = async () => {
     const req = await fetch('http://localhost:3001/all')
     try {

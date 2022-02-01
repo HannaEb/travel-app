@@ -5,31 +5,66 @@
         <title>Travel App</title>
     </head>
     <body>
-        <header>
-          <h1>Travel Planner</h1>
-        </header>
-        <main>
-            <section>
-                <form>
-                    <input id='destination' type='text' name='input' placeholder='Please Enter Your Destination'>
-                    <label for='startDate'>From</label>
-                    <input id='startDate' type='date' name='input' placeholder='When are you leaving?'>
-                    <label for='endDate'>To</label>
-                    <input id='endDate' type='date' name='input' placeholder='When are you leaving?'>
-                    <button id='generate' type='submit'>Submit</button>
-                </form>
-            </section>
-            <section>
-                <strong>Weather Forecast:</strong>
-                <div id='city'></div>
-                <div id='country'></div>
-                <div id='duration'></div>
-                <div id='description'></div>
-                <div id='temperature'></div>
-            </section>
-            <secion>
-                <img id='locationImage' src='#' alt='Image of Travel Destination'>
-            </secion>
-        </main>
+        <div id='container'>
+            <header>
+                <h1>Travel Planner</h1>
+            </header>
+            <main>
+                <section id='form'> 
+                    <!-- <form>
+                        <ul class='form-wrapper'>
+                            <li class='form-row'>
+                                <label for='destination'>Destination:</label>
+                                <input id='destination' type='text' name='input' placeholder='Destination'>    
+                            </li>
+                            <li class='form-row'>
+                                <label for='startDate'>From:</label>
+                                <input id='startDate' type='date' name='input' placeholder='When are you leaving?'>
+                            </li>
+                            <li class='form-row'>
+                                <label for='endDate'>To:</label>
+                                <input id='endDate' type='date' name='input' placeholder='When are you leaving?'>
+                            </li>
+                            <li class='form-row'>
+                                <button id='generate' type='submit'>Add Trip</button>
+                            </li>
+                        </ul>
+                    </form> -->
+                    <form>
+                        <div class='form-row'>
+                            <label for='destination'>Destination:</label>
+                            <input id='destination' type='text' name='input' placeholder='Destination'>    
+                        </div>
+                        <div class='form-row'>
+                            <label for='startDate'>From:</label>
+                            <input id='startDate' type='date' name='input' placeholder='When are you leaving?'>
+                        </div>
+                        <div class='form-row'>
+                            <label for='endDate'>To:</label>
+                            <input id='endDate' type='date' name='input' placeholder='When are you leaving?'>
+                        </div>
+                        <div class='form-row'>
+                            <button id='generate' type='submit'>Add Trip</button>
+                        </div>
+                    </form>
+                </section>
+                <div id='trip'>
+                    <section>
+                        <img id='locationImage' src='#' alt='Image of Travel Destination'>
+                    </section>
+                    <section>
+                        <strong>Weather Forecast:</strong>
+                        <div id='city'></div>
+                        <div id='country'></div>
+                        <div id='duration'></div>
+                        <div id='description'></div>
+                        <div id='temperature'></div>
+                    </section>
+                </div>
+            </main>
+            <footer>
+                <p>Enjoy Your Trip!</p>
+            </footer>
+        </div>
     </body>
 </html>
