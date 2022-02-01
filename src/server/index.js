@@ -51,8 +51,6 @@ app.get('/all', sendData)
 // POST route
 const addData = (req, res) => {
     let newData = req.body;
-    console.log('Server Data:')
-    console.log(newData)
     projectData['geonamesData'] = newData.geonamesData
     projectData['weatherbitData'] = newData.weatherbitData
     projectData['pixabayData'] = newData.pixabayData
