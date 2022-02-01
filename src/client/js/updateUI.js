@@ -9,7 +9,9 @@ const updateUI = async () => {
         document.getElementById('weather').innerHTML = 'Weather conditions:'
         document.getElementById('description').innerHTML = allData.weatherbitData.description
         document.getElementById('temperature').innerHTML = allData.weatherbitData.temperature + ' degrees'
-        document.getElementById('locationImage').src = allData.pixabayData.image
+        let img = document.createElement('img')
+        img.src = allData.pixabayData.image
+        document.getElementById('image').appendChild(img)
     } catch(error) {
         console.log('error', error)
     }

@@ -9,8 +9,6 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     font-size: 2vh;
-    display: flex;
-    flex-direction: column;
 }
 
 #container {
@@ -89,4 +87,10 @@ button {
 
 input {
     font-size: 1em;
+}
+
+img {
+    width: 100%;
+    max-width: 30em;
+    height: auto;
 }

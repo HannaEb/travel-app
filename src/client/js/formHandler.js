@@ -59,7 +59,7 @@ const handleSubmit = (event) => {
 
         let pixabayKey = apiKeys['pixabayKey']
 
-        return getData(pixabayURL+'key='+pixabayKey+'&q='+destination+'&image-type=photo')
+        return getData(pixabayURL+'key='+pixabayKey+'&q='+destination+'&image-type=photo&orientation=horizontal')
     })
     .then(data => {
         pixabayData = {
