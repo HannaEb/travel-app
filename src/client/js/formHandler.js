@@ -27,7 +27,7 @@ const handleSubmit = (event) => {
         day = days
     }
 
-    retrieveApiKeys()
+    Client.retrieveApiKeys()
     .then(() => {
         let geonamesKey = apiKeys['geonamesKey']
         return getData(geonamesURL+destination+'&maxRows=1&username='+geonamesKey)
@@ -77,21 +77,6 @@ const handleSubmit = (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('generate').addEventListener('click', handleSubmit)
 })
-
-// Get API keys from server
-const retrieveApiKeys = async () => {
-    const req = await fetch('http://localhost:3001/api')
-    try {
-        const keys = await req.json()
-        apiKeys = {
-            geonamesKey: keys.geonamesKey,
-            weatherbitKey: keys.weatherbitKey,
-            pixabayKey: keys.pixabayKey
-        }
-    } catch(error) {
-        console.log('error', error)
-    }
-}
 
 // GET request
 const getData = async (url) => {
