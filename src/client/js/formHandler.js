@@ -10,10 +10,6 @@ let geonamesData = {}
 let weatherbitData = {}
 let pixabayData = {}
 
-// Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
-
 // Callback function
 const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,9 +17,8 @@ const handleSubmit = (event) => {
     const destination = document.getElementById('destination').value 
     const startDate = document.getElementById('startDate').value
     const endDate = document.getElementById('endDate').value
-    let duration = calcDays(startDate, endDate) - 1
-    let todaysDate = Date.now()
-    let days = calcDays(todaysDate, startDate)
+    let duration = Client.calcDays(startDate, endDate) - 1
+    let days = Client.calcDays(Date.now(), startDate)
     let day 
 
     if (days <= 7 || days > 16) {
@@ -125,31 +120,6 @@ const postData = async (url = '', data = {}) => {
     } catch(error) {
         console.log('error', error)
     }
-}
-
-// // Update UI
-// const updateUI = async () => {
-//     const req = await fetch('http://localhost:3001/all')
-//     try {
-//         const allData = await req.json()
-//         document.getElementById('city').innerHTML = allData.geonamesData.city
-//         document.getElementById('country').innerHTML = allData.geonamesData.country
-//         document.getElementById('duration').innerHTML = allData.duration
-//         document.getElementById('description').innerHTML = allData.weatherbitData.description
-//         document.getElementById('temperature').innerHTML = allData.weatherbitData.temperature
-//         document.getElementById('locationImage').src = allData.pixabayData.image
-//     } catch(error) {
-//         console.log('error', error)
-//     }
-// }
-
-// Calculate countdown
-const calcDays = (start, end) => {
-    const startDate = new Date(start)
-    const endDate = new Date(end)
-
-    const days = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24) + 1)
-    return days
 }
 
 export { handleSubmit }
