@@ -28,7 +28,8 @@ const handleSubmit = (event) => {
     }
 
     Client.retrieveApiKeys()
-    .then(() => {
+    .then((data) => {
+        apiKeys = data
         let geonamesKey = apiKeys['geonamesKey']
         return getData(geonamesURL+destination+'&maxRows=1&username='+geonamesKey)
     })
@@ -69,7 +70,6 @@ const handleSubmit = (event) => {
             pixabayData
         })
     })
-    // .then(() => updateUI())
     .then(() => Client.updateUI())
 }
 
