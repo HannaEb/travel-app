@@ -59,7 +59,9 @@ const handleSubmit = (event) => {
     })
     .then(data => {
         pixabayData = {
-            image: data.hits[0].webformatURL
+            imageOne: data.hits[0].webformatURL,
+            imageTwo: data.hits[1].webformatURL,
+            imageThree: data.hits[2].webformatURL
         }
     })
     .then(() => {

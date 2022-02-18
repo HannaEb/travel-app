@@ -31,6 +31,9 @@
                 </section>
                 <div id='trip'>
                     <section id='image'>
+                        <img id='image-1' onerror="this.style.display = 'none';">
+                        <img id='image-2' onerror="this.style.display = 'none';">
+                        <img id='image-3' onerror="this.style.display = 'none';">
                     </section>
                     <section>
                         <div id='intro'></div>
@@ -47,13 +50,13 @@
             </footer>
         </div>
         <script>
-            // Check that service workers are supported
-            if  ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js');
-                });
-            }
+            // // Check that service workers are supported
+            // if  ('serviceWorker' in navigator) {
+            //     // Use the window load event to keep the page load performant
+            //     window.addEventListener('load', () => {
+            //         navigator.serviceWorker.register('/service-worker.js');
+            //     });
+            // }
         </script>
     </body>
 </html>
