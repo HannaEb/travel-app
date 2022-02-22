@@ -5,50 +5,50 @@
         <title>Travel App</title>
     </head>
     <body>
-        <div id='container'>
-            <header>
-                <h1>Travel Planner</h1>
-            </header>
-            <main>
-                <section id='form'> 
-                    <form>
-                        <div class='form-row'>
-                            <label for='destination'>Destination:</label>
-                            <input id='destination' type='text' name='input' placeholder='Destination'>    
-                        </div>
-                        <div class='form-row'>
-                            <label for='startDate'>From:</label>
-                            <input id='startDate' type='date' name='input' placeholder='When are you leaving?'>
-                        </div>
-                        <div class='form-row'>
-                            <label for='endDate'>To:</label>
-                            <input id='endDate' type='date' name='input' placeholder='When are you leaving?'>
-                        </div>
-                        <div class='form-row'>
-                            <button id='generate' type='submit'>Add Trip</button>
-                        </div>
-                    </form>
+        <header class='header'>
+            <div class="header__heading-box">
+                <h1 class='primary-heading'>Travel Planner</h1>
+            </div>  
+        </header>
+        <main>
+            <section id='form'> 
+                <form>
+                    <div class='form-row'>
+                        <label for='destination'>Destination:</label>
+                        <input id='destination' type='text' name='input' placeholder='Destination'>    
+                    </div>
+                    <div class='form-row'>
+                        <label for='startDate'>From:</label>
+                        <input id='startDate' type='date' name='input' placeholder='When are you leaving?'>
+                    </div>
+                    <div class='form-row'>
+                        <label for='endDate'>To:</label>
+                        <input id='endDate' type='date' name='input' placeholder='When are you leaving?'>
+                    </div>
+                    <div class='form-row'>
+                        <button id='generate' type='submit'>Add Trip</button>
+                    </div>
+                </form>
+            </section>
+            <div id='trip'>
+                <section id='image'>
+                    <img id='image-1' onerror="this.style.display = 'none';">
+                    <img id='image-2' onerror="this.style.display = 'none';">
+                    <img id='image-3' onerror="this.style.display = 'none';">
                 </section>
-                <div id='trip'>
-                    <section id='image'>
-                        <img id='image-1' onerror="this.style.display = 'none';">
-                        <img id='image-2' onerror="this.style.display = 'none';">
-                        <img id='image-3' onerror="this.style.display = 'none';">
-                    </section>
-                    <section>
-                        <div id='intro'></div>
-                        <div id='location'></div>
-                        <div id='duration'></div>
-                        <div id='weather'></div>
-                        <div id='description'></div>
-                        <div id='temperature'></div>
-                    </section>
-                </div>
-            </main>
-            <footer>
-                <p>Enjoy Your Trip!</p>
-            </footer>
-        </div>
+                <section>
+                    <div id='intro'></div>
+                    <div id='location'></div>
+                    <div id='duration'></div>
+                    <div id='weather'></div>
+                    <div id='description'></div>
+                    <div id='temperature'></div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>Enjoy Your Trip!</p>
+        </footer>
         <script>
             // // Check that service workers are supported
             // if  ('serviceWorker' in navigator) {
