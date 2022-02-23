@@ -7,7 +7,7 @@
                       url(../media/world-small.png);
     background-size: cover;
     background-position: center;
-    clip-path: polygon(100% 0, 100% 100%, 50% 80%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% 100%, 50% 32vh, 0 100%, 0 0);
     position: relative;
 
     &__heading-box {
