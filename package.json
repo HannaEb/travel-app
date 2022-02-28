@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/server/server.js",
+    "start": "node src/server/index.js",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
@@ -13,7 +13,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "body-parser": "^1.19.1",
     "cors": "^2.8.5",
     "dotenv": "^14.2.0",
     "express": "^4.17.1",
@@ -40,7 +39,6 @@
     "superagent": "^7.1.1",
     "supertest": "^6.2.2",
     "terser-webpack-plugin": "^4.2.3",
-    "webpack-dev-server": "^3.7.2",
-    "workbox-webpack-plugin": "^4.3.1"
+    "webpack-dev-server": "^3.7.2"
   }
 }
