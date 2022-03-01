@@ -1,0 +1,30 @@
+.form {
+
+    &__group > * {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__group:last-child {
+        text-align: center;
+    }
+
+    &__input {
+        font-size: 1.6rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: .5rem;
+        background-color: $color-grey-light-1;
+        border: none;
+        width: 90%;
+        display: block;
+    }
+
+    &__date-input {
+    }
+}

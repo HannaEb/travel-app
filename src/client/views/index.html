@@ -11,66 +11,68 @@
         <title>Travel Planner</title>
     </head>
     <body>
-        <header class="header">
-            <div class="header__heading-box">
-                <h1 class="primary-heading">Travel Planner</h1>
-            </div>  
-        </header>
-        <main>
-            <section class="section-new-trip">
-                <div class="new-trip">
-                    <div class="new-trip__form">
-                        <form class="form">
-                            <div class="form__group">
-                                <input type="text" class="form__input" placeholder="Destination" id="destination" required>    
-                                <label for='destination' class="form__label">Destination:</label>
-                            </div>
-                            <div class="form__group">
-                                <div class="form__date-group">
-                                    <input type="date" class="form__date-input" id="startDate" name="date">
-                                    <label for="startDate" class="form__date-label">From:</label>
+        <div class="container">
+            <header class="header">
+                <div class="header__heading-box">
+                    <h1 class="primary-heading">Travel Planner</h1>
+                </div>  
+            </header>
+            <main>
+                <section class="section-new-trip">
+                    <div class="new-trip">
+                        <div class="new-trip__form">
+                            <form class="form">
+                                <div class="form__group">
+                                    <label for='destination' class="form__label">Destination:</label>
+                                    <input type="text" class="form__input" placeholder="Destination" id="destination" required>    
                                 </div>
-                            </div>
-                            <div class="form__group">
-                                <div class="form__date-group">
-                                    <input type="date" class="form__date-input" id="endDate" name="date">
-                                    <label for="endDate" class=""form__date-label>To:</label>
+                                <div class="form__group">
+                                    <!-- <div class="form__date-group"> -->
+                                        <label for="startDate" class="form__date-label">From:</label>
+                                        <input type="date" class="form__input form__date-input" id="startDate" name="date">
+                                    <!-- </div> -->
                                 </div>
-                            </div>
-                            <div class="form__group">
-                                <button class="btn" type="submit" id="generate">Add Trip</button>
-                            </div>
-                        </form>
+                                <div class="form__group">
+                                    <!-- <div class="form__date-group"> -->
+                                        <label for="endDate" class=""form__date-label>To:</label>
+                                        <input type="date" class="form__input form__date-input" id="endDate" name="date">
+                                    <!-- </div> -->
+                                </div>
+                                <div class="form__group">
+                                    <button class="btn" type="submit" id="generate">Add Trip</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
+                </section>
+                <div id='trip'>
+                    <section id='image'>
+                        <img id='image-1' onerror="this.style.display = 'none';">
+                        <img id='image-2' onerror="this.style.display = 'none';">
+                        <img id='image-3' onerror="this.style.display = 'none';">
+                    </section>
+                    <section>
+                        <div id='intro'></div>
+                        <div id='location'></div>
+                        <div id='duration'></div>
+                        <div id='weather'></div>
+                        <div id='description'></div>
+                        <div id='temperature'></div>
+                    </section>
                 </div>
-            </section>
-            <div id='trip'>
-                <section id='image'>
-                    <img id='image-1' onerror="this.style.display = 'none';">
-                    <img id='image-2' onerror="this.style.display = 'none';">
-                    <img id='image-3' onerror="this.style.display = 'none';">
-                </section>
-                <section>
-                    <div id='intro'></div>
-                    <div id='location'></div>
-                    <div id='duration'></div>
-                    <div id='weather'></div>
-                    <div id='description'></div>
-                    <div id='temperature'></div>
-                </section>
-            </div>
-        </main>
-        <footer>
-            <p>Enjoy Your Trip!</p>
-        </footer>
-        <script>
-            // // Check that service workers are supported
-            // if  ('serviceWorker' in navigator) {
-            //     // Use the window load event to keep the page load performant
-            //     window.addEventListener('load', () => {
-            //         navigator.serviceWorker.register('/service-worker.js');
-            //     });
-            // }
-        </script>
+            </main>
+            <footer class="footer">
+                <p>Enjoy Your Trip!</p>
+            </footer>
+            <script>
+                // // Check that service workers are supported
+                // if  ('serviceWorker' in navigator) {
+                //     // Use the window load event to keep the page load performant
+                //     window.addEventListener('load', () => {
+                //         navigator.serviceWorker.register('/service-worker.js');
+                //     });
+                // }
+            </script>
+        </div>
     </body>
 </html>
