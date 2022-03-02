@@ -1,12 +1,20 @@
 .header {
+    background-image: linear-gradient(to right bottom,
+                                    $color-primary-light,
+                                    $color-primary-dark);
+    padding: 2rem 3rem;
 
-                    //   url(../media/world-small.png);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-    &__heading-box {
-        // position: absolute;
-        // top: 45%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
-        // text-align: center;
-    }
+.logo {
+    height: 5rem;
+    width: 5rem;
+    margin-right: 3rem;
+}
+
+.primary-heading {
+    text-align: right;
 }

@@ -1,12 +1,17 @@
 body {
     font-family: 'Raleway', 'Lato', sans-serif;
     font-weight: 400;
+    color: $color-grey-dark-2;
 }
 
 .primary-heading {
     text-transform: uppercase;
-    font-size: 4rem;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    font-weight: 400;
     letter-spacing: 1rem;
-    line-height: 1.4;
-    font-weight: 100;
+    color: $color-white;
+
+    display: flex;
+    align-items: flex-start;
 }
