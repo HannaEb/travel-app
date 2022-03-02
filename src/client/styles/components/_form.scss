@@ -1,16 +1,23 @@
 .form {
 
-    &__group > * {
+    &__group * {
         margin-right: auto;
         margin-left: auto;
     }
 
     &__group:not(:last-child) {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     &__group:last-child {
         text-align: center;
+        margin-top: 4rem;
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: .5rem;
+        margin-left: 5%;
     }
 
     &__input {
@@ -19,12 +26,16 @@
         color: inherit;
         padding: 1.5rem 2rem;
         border-radius: .5rem;
-        background-color: $color-grey-light-1;
+        background-color: $color-white;
         border: none;
+        border-bottom: .3rem solid transparent;
         width: 90%;
         display: block;
+
+        &:focus {
+            outline: none;
+            border-bottom: .3rem solid $color-grey-light-3;
+        }
     }
 
-    &__date-input {
-    }
 }

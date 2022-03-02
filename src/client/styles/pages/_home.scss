@@ -1,15 +1,19 @@
 .section-new-trip {
     padding: 4rem 0;
-    background-color: $color-white;
+    background-color: $color-grey-light-2;
+    background-image: url(../media/groovepaper.png);
 }
 
 .new-trip {
     max-width: 80%;
     margin: 0 auto;
+    padding: 2rem 0;
     border-radius: .5rem;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+    background-color: $color-grey-light-1;
 
     &__form {
         padding: 2rem;
     }
 }
+
