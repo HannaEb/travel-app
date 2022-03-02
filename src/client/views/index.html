@@ -13,9 +13,8 @@
     <body>
         <div class="container">
             <header class="header">
-                <div class="header__heading-box">
-                    <h1 class="primary-heading">Travel Planner</h1>
-                </div>  
+                <img src="./../media/logo.png" alt="logo" class="logo">
+                <h1 class="primary-heading">Travel Planner</h1>
             </header>
             <main>
                 <section class="section-new-trip">
@@ -27,16 +26,12 @@
                                     <input type="text" class="form__input" placeholder="Destination" id="destination" required>    
                                 </div>
                                 <div class="form__group">
-                                    <!-- <div class="form__date-group"> -->
-                                        <label for="startDate" class="form__date-label">From:</label>
-                                        <input type="date" class="form__input form__date-input" id="startDate" name="date">
-                                    <!-- </div> -->
+                                    <label for="startDate" class="form__label">From:</label>
+                                    <input type="date" class="form__input" id="startDate" name="date">
                                 </div>
                                 <div class="form__group">
-                                    <!-- <div class="form__date-group"> -->
-                                        <label for="endDate" class=""form__date-label>To:</label>
-                                        <input type="date" class="form__input form__date-input" id="endDate" name="date">
-                                    <!-- </div> -->
+                                    <label for="endDate" class="form__label">To:</label>
+                                    <input type="date" class="form__input" id="endDate" name="date">
                                 </div>
                                 <div class="form__group">
                                     <button class="btn" type="submit" id="generate">Add Trip</button>
@@ -62,7 +57,8 @@
                 </div>
             </main>
             <footer class="footer">
-                <p>Enjoy Your Trip!</p>
+                <img src="./../media/logo.png" alt="logo" class="logo">
+                <p class="footer__copyright">Copyright &copy; by Hanna Eberhoefer</p>
             </footer>
             <script>
                 // // Check that service workers are supported

@@ -1,0 +1,12 @@
+.footer {
+    padding: 2rem;
+    background-color: $color-grey-dark-3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer .logo {
+    margin-bottom: 1rem;
+}
