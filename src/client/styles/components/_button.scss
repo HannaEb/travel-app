@@ -9,9 +9,9 @@
     border-radius: 5rem;
     border: none;
     cursor: pointer;
+    transition: transform .2s;
     
     &:hover {
         transform: scale(1.1);
-        opacity: .9;
     }
 }
