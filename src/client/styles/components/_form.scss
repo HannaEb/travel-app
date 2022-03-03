@@ -1,17 +1,27 @@
 .form {
 
+    @include respond(tablet) {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(min-content, 33%));
+    }
+
     &__group * {
         margin-right: auto;
         margin-left: auto;
     }
 
     &__group:not(:last-child) {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem; 
     }
 
     &__group:last-child {
         text-align: center;
-        margin-top: 4rem;
+        margin-top: 3rem;
+
+        @include respond(tablet) {
+            margin-top: 1rem;
+            grid-column: 1 / -1;
+        }
     }
 
     &__label {
@@ -21,10 +31,11 @@
     }
 
     &__input {
-        font-size: 1.6rem;
+        font-size: inherit;
         font-family: inherit;
         color: inherit;
-        padding: 1.5rem 2rem;
+        padding: 0 1.5rem;
+        height: 4rem;
         border-radius: .5rem;
         background-color: $color-white;
         border: none;
@@ -36,6 +47,8 @@
             outline: none;
             border-bottom: .3rem solid $color-grey-light-3;
         }
+
     }
+
 
 }
