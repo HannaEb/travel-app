@@ -6,6 +6,10 @@
 
     background-color: $color-grey-light-1;
 
+    @include respond(tablet) {
+        grid-row-gap: 8rem;
+    }
+
     @include respond(lg-desktop) {
         max-width: 120rem;
         margin: 5rem auto;
