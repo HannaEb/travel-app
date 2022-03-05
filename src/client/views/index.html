@@ -1,79 +1,124 @@
 <!DOCTYPE html>
-<html lang='en'>
-    <head>
-        <meta charset='UTF-8'>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700"
+      rel="stylesheet"
+    />
 
-        <title>Travel Planner</title>
-        <link rel="shortcut icon" type="image/png" href="./../media/favicon-1.png">
-    </head>
-    <body>
-        <div class="container">
-            <header class="header">
-                <img src="./../media/logo.png" alt="logo" class="logo">
-                <h1 class="primary-heading">Travel Planner</h1>
-            </header>
-            <section class="section-destination">
-                <div class="destination">
-                    <div class="destination__details">
-                        <p class="destination__intro" id="intro">Your upcoming trip to</p>
-                        <h2 class="secondary-heading" id='location'>Paris, France</h2>
-                        <p class="destination__duration" id='duration'>For 7 nights</p>
-                    </div>
-                    <div class="destination__weather">
-                        <div class="weather-card" id='weather'>
-                            <p class="weather-card__date">17th March 2022</p>
-                            <p class="weather-card__desc" id='description'>Mostly cloudy</p>
-                            <p class="weather-card__temp" id='temperature'>14degrees</p>
-                        </div>
-                    </div>
-                    <div class="destination__images">
-                        <img class="destination__img--1" id='image-1' src="./../media/paris-1.jpg" onerror="this.style.display = 'none';">
-                        <img class="destination__img--2" id='image-2' src="./../media/paris-2.jpg"onerror="this.style.display = 'none';">
-                        <img class="destination__img--3" id='image-3' src="./../media/paris-3.jpg"onerror="this.style.display = 'none';">
-                    </div>
-                </div>
-            </section>
-            <section class="section-new-trip">
-                <div class="new-trip">
-                    <div class="new-trip__form">
-                        <form class="form">
-                            <div class="form__group">
-                                <label for='destination' class="form__label">Destination:</label>
-                                <input type="text" class="form__input" placeholder="Destination" id="destination" required>    
-                            </div>
-                            <div class="form__group">
-                                <label for="startDate" class="form__label">From:</label>
-                                <input type="date" class="form__input" id="startDate" name="date">
-                            </div>
-                            <div class="form__group">
-                                <label for="endDate" class="form__label">To:</label>
-                                <input type="date" class="form__input" id="endDate" name="date">
-                            </div>
-                            <div class="form__group">
-                                <button class="btn form__btn" type="submit" id="generate">Add Trip</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-            <footer class="footer">
-                <img src="./../media/logo.png" alt="logo" class="logo">
-                <p class="footer__copyright">&copy; 2022 by Hanna</p>
-            </footer>
-            <script>
-                // // Check that service workers are supported
-                // if  ('serviceWorker' in navigator) {
-                //     // Use the window load event to keep the page load performant
-                //     window.addEventListener('load', () => {
-                //         navigator.serviceWorker.register('/service-worker.js');
-                //     });
-                // }
-            </script>
+    <title>Travel Planner</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="./../media/favicon-1.png"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="./../media/logo.png" alt="logo" class="logo" />
+        <h1 class="primary-heading">Travel Planner</h1>
+      </header>
+      <section class="section-destination">
+        <div class="destination">
+          <div class="destination__details">
+            <p class="destination__intro" id="intro">Your upcoming trip to</p>
+            <h2 class="secondary-heading" id="location">Paris, France</h2>
+            <p class="destination__duration" id="duration">For 7 nights</p>
+          </div>
+          <div class="destination__weather">
+            <div class="weather-card" id="weather">
+              <p class="weather-card__date">17th March 2022</p>
+              <p class="weather-card__desc" id="description">Mostly cloudy</p>
+              <p class="weather-card__temp" id="temperature">14degrees</p>
+            </div>
+          </div>
+          <div class="destination__images">
+            <img
+              class="destination__img destination__img--1"
+              id="image-1"
+              src="./../media/paris-1.jpg"
+              onerror="this.style.display = 'none';"
+            />
+            <img
+              class="destination__img destination__img--2"
+              id="image-2"
+              src="./../media/paris-2.jpg"
+              onerror="this.style.display = 'none';"
+            />
+            <img
+              class="destination__img destination__img--3"
+              id="image-3"
+              src="./../media/paris-3.jpg"
+              onerror="this.style.display = 'none';"
+            />
+          </div>
         </div>
-    </body>
+      </section>
+      <section class="section-new-trip">
+        <div class="new-trip">
+          <div class="new-trip__form">
+            <form class="form">
+              <div class="form__group">
+                <label for="destination" class="form__label"
+                  >Destination:</label
+                >
+                <input
+                  type="text"
+                  class="form__input"
+                  placeholder="Destination"
+                  id="destination"
+                  required
+                />
+              </div>
+              <div class="form__group">
+                <label for="startDate" class="form__label">From:</label>
+                <input
+                  type="date"
+                  class="form__input"
+                  id="startDate"
+                  name="date"
+                />
+              </div>
+              <div class="form__group">
+                <label for="endDate" class="form__label">To:</label>
+                <input
+                  type="date"
+                  class="form__input"
+                  id="endDate"
+                  name="date"
+                />
+              </div>
+              <div class="form__group">
+                <button class="btn form__btn" type="submit" id="generate">
+                  Add Trip
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <img src="./../media/logo.png" alt="logo" class="logo" />
+        <p class="footer__copyright">&copy; 2022 by Hanna</p>
+      </footer>
+      <script>
+        // // Check that service workers are supported
+        // if  ('serviceWorker' in navigator) {
+        //     // Use the window load event to keep the page load performant
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/service-worker.js');
+        //     });
+        // }
+      </script>
+    </div>
+  </body>
 </html>
