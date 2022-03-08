@@ -50,5 +50,9 @@
       outline: none;
       border-bottom: 0.3rem solid $color-primary-medium;
     }
+
+    &::placeholder {
+      color: inherit;
+    }
   }
 }
