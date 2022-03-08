@@ -1,11 +1,13 @@
 .header {
   grid-column: 1 / -1;
 
-  background-image: linear-gradient(
-    to right bottom,
-    $color-primary-light,
-    $color-primary-dark
-  );
+  // background-image: linear-gradient(
+  //   to right bottom,
+  //   $color-primary-light,
+  //   $color-primary-dark
+  // );
+  background-color: $color-primary-medium;
+  // background-color: #142943;
   padding: 2rem 3rem;
 
   display: flex;

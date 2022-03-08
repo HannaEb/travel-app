@@ -1,57 +1,54 @@
 .form {
-    display: grid;
+  display: grid;
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 33%));
+  }
+
+  @include respond(desktop) {
+    grid-template-columns: 1fr;
+  }
+
+  &__group * {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__group:last-child {
+    justify-self: center;
+    margin-top: 1rem;
 
     @include respond(tablet) {
-       grid-template-columns: repeat(auto-fit, minmax(min-content, 33%));
+      grid-column: 1 / -1;
     }
+  }
 
-    @include respond(desktop) {
-        grid-template-columns: 1fr;
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-left: 5%;
+  }
+
+  &__input {
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    padding: 0 1.5rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    background-color: $color-white;
+    border: none;
+    border-bottom: 0.3rem solid transparent;
+    width: 90%;
+    display: block;
+
+    &:focus {
+      outline: none;
+      border-bottom: 0.3rem solid $color-primary-medium;
     }
-
-    &__group * {
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    &__group:not(:last-child) {
-        margin-bottom: 2rem; 
-    }
-
-    &__group:last-child {
-        justify-self: center;
-        margin-top: 1rem;
-
-        @include respond(tablet) {
-            grid-column: 1 / -1;
-        }
-    }
-
-    &__label {
-        display: block;
-        margin-bottom: .5rem;
-        margin-left: 5%;
-    }
-
-    &__input {
-        font-size: inherit;
-        font-family: inherit;
-        color: inherit;
-        padding: 0 1.5rem;
-        height: 4rem;
-        border-radius: .5rem;
-        background-color: $color-white;
-        border: none;
-        border-bottom: .3rem solid transparent;
-        width: 90%;
-        display: block;
-
-        &:focus {
-            outline: none;
-            border-bottom: .3rem solid $color-grey-light-3;
-        }
-
-    }
-
-
+  }
 }

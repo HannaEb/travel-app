@@ -1,13 +1,9 @@
 .container {
   display: grid;
-  grid-template-columns: 5vw repeat(10, 1fr) 5vw;
-  grid-template-rows: 20vh repeat(2, min-content) 15vh;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 20vh repeat(2, max-content) 15vh;
 
-  background-color: $color-grey-light-1;
-
-  @include respond(desktop) {
-    grid-template-columns: repeat(12, 1fr);
-  }
+  background-color: white;
 
   @include respond(lg-desktop) {
     max-width: 120rem;

@@ -1,18 +1,17 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    font-size: 50%; // 1 rem = 8px
+  font-size: 50%; // 1 rem = 8px
 
-    @include respond(desktop) {
-        font-size: 56.25%;
-    }
+  @include respond(desktop) {
+    font-size: 56.25%;
+  }
 }
 
 body {
-    box-sizing: border-box;
-    background-color: $color-grey-light-1;
+  box-sizing: border-box;
 }

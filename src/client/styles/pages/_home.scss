@@ -1,6 +1,8 @@
 .section-new-trip {
-  grid-column: 2 / span 10;
-
+  grid-column: 1 / -1;
+  // background-color: #74c0fc;
+  // background-color: #6f4849;
+  background-color: $color-primary-light;
   padding: 5rem 0;
 
   @include respond(tablet) {
@@ -16,7 +18,10 @@
 .new-trip {
   border-radius: 0.5rem;
   box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
-  background-color: $color-grey-light-1;
+  // background-color: $color-grey-light-1;
+  background-color: $color-primary-lightest;
+  max-width: 90%;
+  margin: 0 auto;
 
   &__form {
     padding: 2rem;
@@ -24,7 +29,7 @@
 }
 
 .section-destination {
-  grid-column: 2 / span 10;
+  grid-column: 1 / -1;
 
   padding: 5rem 0;
 
@@ -42,6 +47,9 @@
   display: grid;
   grid-row-gap: 5rem;
   justify-items: center;
+
+  max-width: 90%;
+  margin: 0 auto;
 
   @include respond(tablet) {
     grid-column: 3 / 7;
