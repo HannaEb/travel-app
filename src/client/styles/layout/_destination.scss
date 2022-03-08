@@ -1,0 +1,14 @@
+.section-destination {
+  grid-column: 1 / -1;
+
+  padding: 5rem 0;
+
+  @include respond(tablet) {
+    padding: 10rem;
+  }
+
+  @include respond(desktop) {
+    grid-column: 4 / -1;
+    grid-row: 2 / span 1;
+  }
+}

@@ -1,15 +1,17 @@
-@import 'abstracts/mixins';
-@import 'abstracts/variables';
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-@import 'base/base';
-@import 'base/typography';
+@import "base/base";
+@import "base/typography";
 
-@import 'components/button';
-@import 'components/form';
-@import 'components/weather';
+@import "components/button";
+@import "components/form";
+@import "components/weather";
 
-@import 'layout/container';
-@import 'layout/footer';
-@import 'layout/header';
+@import "layout/container";
+@import "layout/destination";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/new-trip";
 
-@import 'pages/home';
+@import "pages/home";
