@@ -1,26 +1,30 @@
 .header {
   grid-column: 1 / -1;
 
-  // background-image: linear-gradient(
-  //   to right bottom,
-  //   $color-primary-light,
-  //   $color-primary-dark
-  // );
-  background-color: $color-primary-medium;
-  // background-color: #142943;
-  padding: 2rem 3rem;
-
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+
+  background-image: linear-gradient(
+      rgba($color-primary-medium, 0),
+      rgba($color-primary-medium, 0)
+    ),
+    url(../media/header.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  &__text {
+    text-align: center;
+    width: min-content;
+  }
 }
 
 .logo {
   height: 5rem;
   width: 5rem;
-}
-
-.primary-heading {
-  text-align: right;
-  margin-left: 3rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
 }
