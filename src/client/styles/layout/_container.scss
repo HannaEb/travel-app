@@ -1,8 +1,4 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 20vh repeat(2, max-content) 15vh;
-
   background-color: white;
 
   @include respond(lg-desktop) {

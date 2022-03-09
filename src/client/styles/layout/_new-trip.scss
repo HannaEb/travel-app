@@ -1,6 +1,4 @@
 .section-new-trip {
-  grid-column: 1 / -1;
-
   background-color: $color-primary-light;
   padding: 5rem 0;
 
@@ -9,9 +7,6 @@
   }
 
   @include respond(desktop) {
-    grid-column: 1 / span 3;
-    grid-row: 2 / span 2;
-
     padding-top: 2rem;
   }
 }
