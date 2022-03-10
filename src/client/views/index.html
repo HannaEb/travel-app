@@ -32,37 +32,32 @@
         <img src="./../media/logo.png" alt="logo" class="logo" />
         <div class="header__text">
           <h1 class="primary-heading">Travel Planner</h1>
-          <button class="btn btn--header">Add trip</button>
+          <button class="btn btn--open-modal">Add trip</button>
         </div>
       </header>
       <section class="modal hidden">
         <button class="btn--close-modal">&times;</button>
-        <form class="modal__form">
-          <div class="form__group">
-            <label for="destination" class="form__label">Destination:</label>
-            <input
-              type="text"
-              class="form__input"
-              placeholder="Destination"
-              id="destination"
-              required
-            />
-          </div>
-          <div class="form__group">
-            <label for="startDate" class="form__label">From:</label>
-            <input type="date" class="form__input" id="startDate" name="date" />
-          </div>
-          <div class="form__group">
-            <label for="endDate" class="form__label">To:</label>
-            <input type="date" class="form__input" id="endDate" name="date" />
-          </div>
-          <div class="form__group">
-            <button class="btn btn--modal" type="submit" id="generate">
-              Add Trip
-            </button>
-          </div>
+        <form class="form">
+          <label for="destination" class="form__label">Destination</label>
+          <input
+            type="text"
+            class="form__input"
+            placeholder="Destination"
+            id="destination"
+            required
+          />
+          <label for="startDate" class="form__label">From</label>
+          <input type="date" class="form__input" id="startDate" name="date" />
+          <label for="endDate" class="form__label">To</label>
+          <input type="date" class="form__input" id="endDate" name="date" />
+          <button
+            class="btn btn--add-trip form__btn"
+            type="submit"
+            id="generate"
+          >
+            Add Trip
+          </button>
         </form>
-        <!-- </div> -->
       </section>
       <div class="overlay hidden"></div>
       <!-- <section class="section-destination">
