@@ -32,9 +32,40 @@
         <img src="./../media/logo.png" alt="logo" class="logo" />
         <div class="header__text">
           <h1 class="primary-heading">Travel Planner</h1>
+          <button class="btn btn--header">Add trip</button>
         </div>
       </header>
-      <section class="section-destination">
+      <section class="modal hidden">
+        <button class="btn--close-modal">&times;</button>
+        <form class="modal__form">
+          <div class="form__group">
+            <label for="destination" class="form__label">Destination:</label>
+            <input
+              type="text"
+              class="form__input"
+              placeholder="Destination"
+              id="destination"
+              required
+            />
+          </div>
+          <div class="form__group">
+            <label for="startDate" class="form__label">From:</label>
+            <input type="date" class="form__input" id="startDate" name="date" />
+          </div>
+          <div class="form__group">
+            <label for="endDate" class="form__label">To:</label>
+            <input type="date" class="form__input" id="endDate" name="date" />
+          </div>
+          <div class="form__group">
+            <button class="btn btn--modal" type="submit" id="generate">
+              Add Trip
+            </button>
+          </div>
+        </form>
+        <!-- </div> -->
+      </section>
+      <div class="overlay hidden"></div>
+      <!-- <section class="section-destination">
         <div class="destination">
           <div class="destination__details">
             <p class="destination__intro" id="intro">Your upcoming trip to</p>
@@ -69,50 +100,8 @@
             />
           </div>
         </div>
-      </section>
-      <section class="section-new-trip">
-        <div class="new-trip">
-          <div class="new-trip__form">
-            <form class="form">
-              <div class="form__group">
-                <label for="destination" class="form__label"
-                  >Destination:</label
-                >
-                <input
-                  type="text"
-                  class="form__input"
-                  placeholder="Destination"
-                  id="destination"
-                  required
-                />
-              </div>
-              <div class="form__group">
-                <label for="startDate" class="form__label">From:</label>
-                <input
-                  type="date"
-                  class="form__input"
-                  id="startDate"
-                  name="date"
-                />
-              </div>
-              <div class="form__group">
-                <label for="endDate" class="form__label">To:</label>
-                <input
-                  type="date"
-                  class="form__input"
-                  id="endDate"
-                  name="date"
-                />
-              </div>
-              <div class="form__group">
-                <button class="btn form__btn" type="submit" id="generate">
-                  Add Trip
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
+      </section> -->
+
       <footer class="footer">
         <!-- <img src="./../media/logo.png" alt="logo" class="logo" /> -->
         <p class="footer__copyright">&copy; 2022 by Hanna</p>
