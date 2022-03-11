@@ -4,8 +4,7 @@
     height: 40rem;
     margin: 5rem auto 0 auto;
     position: relative;
-
-    // overflow: hidden;
+    overflow: hidden;
   }
 
   .slide {
@@ -46,5 +45,9 @@
       right: 5%;
       transform: translate(50%, -50%);
     }
+  }
+
+  .hidden {
+    display: none;
   }
 }

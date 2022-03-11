@@ -11,23 +11,27 @@ const goToSlide = (slide) => {
   });
 };
 
+goToSlide(0);
+
 const nextSlide = () => {
+  currentSlide++;
+
   if (currentSlide === numOfSlides - 1) {
-    currentSlide = 0;
-  } else {
-    currentSlide++;
+    rightBtn.classList.add("hidden");
   }
 
   goToSlide(currentSlide);
+  leftBtn.classList.remove("hidden");
 };
 
 const previousSlide = () => {
-  if (currentSlide === 0) {
-    currentSlide = maxSlide - 1;
-  } else {
-    currentSlide--;
+  if (currentSlide === numOfSlides - 1) {
+    rightBtn.classList.remove("hidden");
+  } else if (currentSlide === 1) {
+    leftBtn.classList.add("hidden");
   }
 
+  currentSlide--;
   goToSlide(currentSlide);
 };
 
