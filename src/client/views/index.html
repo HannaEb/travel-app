@@ -35,7 +35,7 @@
           <button class="btn btn--open-modal">Add trip</button>
         </div>
       </header>
-      <section class="modal hidden">
+      <div class="modal hidden">
         <button class="btn--close-modal">&times;</button>
         <form class="form">
           <label for="destination" class="form__label">Destination</label>
@@ -55,12 +55,13 @@
             type="submit"
             id="generate"
           >
-            Add Trip
+            Submit
           </button>
         </form>
-      </section>
+      </div>
       <div class="overlay hidden"></div>
-      <!-- <section class="section-destination">
+
+      <section class="section-destination">
         <div class="destination">
           <div class="destination__details">
             <p class="destination__intro" id="intro">Your upcoming trip to</p>
@@ -74,31 +75,40 @@
               <p class="weather-card__temp" id="temperature">14degrees</p>
             </div>
           </div>
-          <div class="destination__images">
-            <img
-              class="destination__img destination__img--1"
-              id="image-1"
-              src="./../media/paris-1.jpg"
-              onerror="this.style.display = 'none';"
-            />
-            <img
-              class="destination__img destination__img--2"
-              id="image-2"
-              src="./../media/paris-2.jpg"
-              onerror="this.style.display = 'none';"
-            />
-            <img
-              class="destination__img destination__img--3"
-              id="image-3"
-              src="./../media/paris-3.jpg"
-              onerror="this.style.display = 'none';"
-            />
+
+          <div class="slider">
+            <div class="slide">
+              <img
+                class="destination__img destination__img--1"
+                id="image-1"
+                src="./../media/paris-1.jpg"
+                onerror="this.style.display = 'none';"
+              />
+            </div>
+            <div class="slide">
+              <img
+                class="destination__img destination__img--2"
+                id="image-2"
+                src="./../media/paris-2.jpg"
+                onerror="this.style.display = 'none';"
+              />
+            </div>
+            <div class="slide">
+              <img
+                class="destination__img destination__img--3"
+                id="image-3"
+                src="./../media/paris-3.jpg"
+                onerror="this.style.display = 'none';"
+              />
+            </div>
+            <button class="slider__btn slider__btn--left">&#60;</button>
+            <button class="slider__btn slider__btn--right">&#62;</button>
           </div>
         </div>
-      </section> -->
+      </section>
 
       <footer class="footer">
-        <!-- <img src="./../media/logo.png" alt="logo" class="logo" /> -->
+        <img src="./../media/logo.png" alt="logo" class="footer-logo" />
         <p class="footer__copyright">&copy; 2022 by Hanna</p>
       </footer>
       <script>
