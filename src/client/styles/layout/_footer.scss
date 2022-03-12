@@ -1,6 +1,8 @@
 .footer {
-  padding: 2rem;
-  background-color: $color-primary-medium;
+  height: 20vh;
+  background-color: #d97116;
+  font-family: "Libre Baskerville", serif;
+  color: $color-primary-dark;
 
   display: flex;
   flex-direction: column;
@@ -8,8 +10,8 @@
   align-items: center;
 }
 
-.footer .logo {
-  margin-bottom: 1rem;
+.footer-logo {
+  margin-bottom: 2rem;
   height: 3rem;
   width: 3rem;
 }

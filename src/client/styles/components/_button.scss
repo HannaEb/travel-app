@@ -1,16 +1,45 @@
 .btn {
-  background-color: $color-secondary;
-  color: $color-white;
-  font-size: inherit;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  padding: 1rem 2rem;
-  border-radius: 5rem;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s;
+  &,
+  &:link,
+  &visited {
+    text-decoration: none;
+    font-size: inherit;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-family: "Libre Baskerville", serif;
+    display: inline-block;
+  }
+
+  &--open-modal {
+    background-color: $color-white;
+    opacity: 0.8;
+    padding: 1.5rem 5rem;
+    font-weight: bold;
+    margin-top: 8rem;
+  }
+
+  &--add-trip {
+    background-color: $color-primary-medium;
+    color: $color-white;
+    padding: 1rem 3rem;
+  }
+
+  &--tripadvisor {
+    padding: 1.5rem 3rem;
+    background-color: $color-primary-medium;
+    color: $color-white;
+  }
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
   }
 }

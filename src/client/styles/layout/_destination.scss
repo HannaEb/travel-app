@@ -1,7 +1,20 @@
 .section-destination {
-  padding: 5rem 0;
+  padding: 2rem;
+  text-align: center;
+}
 
-  @include respond(tablet) {
-    padding: 10rem;
+.destination {
+  &__details {
+    padding: 2rem 0 2rem 0;
   }
+
+  &__weather {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.tripadvisor {
+  padding: 2rem 0 4rem 0;
 }
