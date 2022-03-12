@@ -6,7 +6,8 @@
       rgba($color-primary-medium, 0)
     ),
     url(../media/header.jpg);
-  background-position: center;
+  background-size: cover;
+  background-position: top;
   background-repeat: no-repeat;
 
   position: relative;
@@ -22,9 +23,9 @@
 }
 
 .logo {
-  height: 5rem;
-  width: 5rem;
   position: absolute;
   top: 2.5rem;
   left: 2.5rem;
+  height: 5rem;
+  width: 5rem;
 }
