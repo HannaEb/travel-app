@@ -5,13 +5,18 @@
 }
 
 html {
-  font-size: 50%; // 1 rem = 8px
+  font-size: 50%; // 1rem = 8px
 
-  @include respond(desktop) {
-    font-size: 56.25%;
+  @include respond(medium) {
+    font-size: 56.25%; // 1rem = 9px
+  }
+
+  @include respond(large) {
+    font-size: 62.5%; // 1rem = 10px;
   }
 }
 
 body {
   box-sizing: border-box;
+  font-size: 1.6rem;
 }

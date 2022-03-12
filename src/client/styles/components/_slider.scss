@@ -75,6 +75,7 @@
 
     @include respond(small) {
       left: 5%;
+      border-radius: 0.5rem;
     }
   }
 
@@ -88,6 +89,7 @@
 
     @include respond(small) {
       right: 5%;
+      border-radius: 0.5rem;
     }
   }
 }
