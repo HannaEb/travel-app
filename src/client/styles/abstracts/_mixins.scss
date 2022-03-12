@@ -1,17 +1,30 @@
-/*
-1em = 16px
-tablet: 37.5em = 600px
-desktop: 56.25em = 900px
-lg-desktop: 75em = 1200px
-*/
 @mixin respond($breakpoint) {
-    @if $breakpoint == lg-desktop {
-        @media only screen and (min-width: 75em) { @content };
-    }
-    @if $breakpoint == desktop {
-        @media only screen and (min-width: 56.25em) { @content };
-    }
-    @if $breakpoint == tablet {
-        @media only screen and (min-width: 37.5em) { @content };
-    }
+  @if $breakpoint == x-large {
+    @media only screen and (min-width: 75em) {
+      @content;
+    } // 1200px
+  }
+  @if $breakpoint == large {
+    @media only screen and (min-width: 56.25em) {
+      @content;
+    } // 900px
+  }
+
+  @if $breakpoint == medium {
+    @media only screen and (min-width: 43.75em) {
+      @content;
+    } // 700px
+  }
+
+  @if $breakpoint == small {
+    @media only screen and (min-width: 31.25em) {
+      @content;
+    } // 500px
+  }
+
+  @if $breakpoint == x-small {
+    @media only screen and (min-width: 25em) {
+      @content;
+    } // 400px
+  }
 }
