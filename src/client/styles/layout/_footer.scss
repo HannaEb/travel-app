@@ -1,8 +1,6 @@
 .footer {
   height: 20vh;
-  background-color: #d97116;
-  font-family: "Libre Baskerville", serif;
-  color: $color-primary-dark;
+  background-color: $color-secondary;
 
   display: flex;
   flex-direction: column;
@@ -12,6 +10,6 @@
 
 .footer-logo {
   margin-bottom: 2rem;
-  height: 3rem;
-  width: 3rem;
+  height: 4rem;
+  width: 4rem;
 }

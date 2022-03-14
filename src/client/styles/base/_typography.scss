@@ -1,5 +1,5 @@
 body {
-  font-family: "Raleway", "Lato", sans-serif;
+  font-family: $font-sans;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.5;
@@ -7,7 +7,7 @@ body {
 }
 
 .primary-heading {
-  font-family: "Libre Baskerville", serif;
+  font-family: $font-serif;
   font-size: 6rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
@@ -19,15 +19,11 @@ body {
   text-transform: uppercase;
   font-size: 2.5rem;
   letter-spacing: 0.3rem;
-  font-family: "Libre Baskerville", serif;
+  font-family: $font-serif;
   color: $color-tertiary;
 }
 
-.form {
-  font-size: 1.4rem;
-}
-
 .footer {
-  font-size: 1.4rem;
-  color: $color-primary-lightest;
+  color: $color-white;
+  text-shadow: 0 0.1rem 0.2rem $color-primary-dark;
 }

@@ -1,50 +1,24 @@
 .form {
   display: grid;
-
-  @include respond(tablet) {
-    grid-template-columns: repeat(auto-fit, minmax(min-content, 33%));
-  }
-
-  @include respond(desktop) {
-    grid-template-columns: 1fr;
-  }
-
-  &__group * {
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  &__group:not(:last-child) {
-    margin-bottom: 2rem;
-  }
-
-  &__group:last-child {
-    justify-self: center;
-    margin-top: 1rem;
-
-    @include respond(tablet) {
-      grid-column: 1 / -1;
-    }
-  }
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: center;
+  font-family: $font-sans;
+  color: $color-primary-dark;
 
   &__label {
-    display: block;
-    margin-bottom: 0.5rem;
-    margin-left: 5%;
+    font-weight: bold;
   }
 
   &__input {
-    font-size: inherit;
+    font-size: 1.2rem;
     font-family: inherit;
     color: inherit;
-    padding: 0 1.5rem;
-    height: 4rem;
+    padding: 1.3rem 1rem 1rem 1rem;
     border-radius: 0.5rem;
     background-color: $color-white;
     border: none;
     border-bottom: 0.3rem solid transparent;
-    width: 90%;
-    display: block;
 
     &:focus {
       outline: none;
@@ -54,5 +28,11 @@
     &::placeholder {
       color: inherit;
     }
+  }
+
+  &__btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 3rem;
   }
 }

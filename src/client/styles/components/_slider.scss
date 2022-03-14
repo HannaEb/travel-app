@@ -3,15 +3,20 @@
   height: 35rem;
   position: relative;
   overflow: hidden;
-  margin: 5vw auto;
+  margin: 0 auto;
 
   @include respond(x-small) {
     height: 40rem;
+    margin: 2vw auto;
   }
 
   @include respond(small) {
     max-width: 100rem;
     height: 45rem;
+  }
+
+  @include respond(medium) {
+    margin: 5rem auto;
   }
 
   @include respond(large) {
@@ -58,8 +63,8 @@
   position: absolute;
   top: 50%;
   border: none;
-  background-color: rgba($color-primary-medium, 0.7);
-  color: $color-primary-lightest;
+  background-color: $color-primary-medium;
+  color: $color-primary-light;
   height: 4rem;
   width: 4rem;
   font-size: 2.5rem;
