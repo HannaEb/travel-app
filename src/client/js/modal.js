@@ -1,20 +1,22 @@
+// Declare variables
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const openModalBtn = document.querySelector(".btn--open-modal");
 const closeModalBtn = document.querySelector(".btn--close-modal");
 
+// Add / remove hidden class to / from elements
 const openModal = () => {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
-
-openModalBtn.addEventListener("click", openModal);
 
 const closeModal = () => {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
 };
 
+// Event listeners for actions to be performed
+openModalBtn.addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
