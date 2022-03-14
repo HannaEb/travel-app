@@ -5,12 +5,10 @@
     text-decoration: none;
     font-size: inherit;
     letter-spacing: 0.1rem;
-    text-transform: uppercase;
     border-radius: 0.5rem;
     border: none;
     cursor: pointer;
     transition: transform 0.2s;
-    font-family: "Libre Baskerville", serif;
     display: inline-block;
   }
 
@@ -20,18 +18,14 @@
     padding: 1.5rem 5rem;
     font-weight: bold;
     margin-top: 8rem;
+    text-transform: uppercase;
+    font-family: $font-serif;
   }
 
-  &--add-trip {
+  &--standard {
     background-color: $color-primary-medium;
     color: $color-white;
     padding: 1rem 3rem;
-  }
-
-  &--tripadvisor {
-    padding: 1.5rem 3rem;
-    background-color: $color-primary-medium;
-    color: $color-white;
   }
 
   &:hover {
