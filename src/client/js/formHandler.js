@@ -33,6 +33,7 @@ const handleSubmit = (event) => {
     })
     .then((data) => {
       geonamesData = { ...data.geonames[0] };
+      console.log(geonamesData);
 
       let weatherbitKey = apiKeys["weatherbitKey"];
 

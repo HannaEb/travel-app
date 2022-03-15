@@ -21,12 +21,17 @@ const scroll = () => {
   destination.scrollIntoView({ behavior: "smooth" });
 };
 
+const showDestination = () => {
+  destination.classList.remove("hidden");
+};
+
 // Event listeners for actions to be performed
 openModalBtn.addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 submitBtn.addEventListener("click", () => {
   closeModal();
+  showDestination();
   scroll();
 });
 
