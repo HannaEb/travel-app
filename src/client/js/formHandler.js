@@ -21,11 +21,7 @@ const handleSubmit = (event) => {
   let days = Client.calcDays(Date.now(), startDate);
   let day;
 
-  if (days <= 7 || days > 16) {
-    day = 0;
-  } else {
-    day = days;
-  }
+  days <= 7 || days > 16 ? (day = 0) : (day = days);
 
   Client.retrieveApiKeys()
     .then((data) => {
@@ -66,9 +62,12 @@ const handleSubmit = (event) => {
       }
     })
     .then((data) => {
+      console.log(data);
       weatherbitData = {
         description: data.data[day].weather.description,
         temperature: data.data[day].temp,
+        date: data.data[day].datetime,
+        icon: data.data[day].weather.icon,
       };
 
       let pixabayKey = apiKeys["pixabayKey"];
