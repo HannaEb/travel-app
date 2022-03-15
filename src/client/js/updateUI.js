@@ -29,7 +29,7 @@ const updateUI = async () => {
     ).src = `${allData.pixabayData.imageThree}`;
     document.getElementById(
       "btn-tripadvisor"
-    ).href = `https://www.tripadvisor.com/Search?q=${allData.geonamesData.city}`;
+    ).href = `https://www.tripadvisor.com/Search?q=${allData.geonamesData.name}`;
   } catch (error) {
     console.log("error", error);
   }
