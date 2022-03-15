@@ -32,10 +32,7 @@ const handleSubmit = (event) => {
       );
     })
     .then((data) => {
-      geonamesData = {
-        city: data.geonames[0].name,
-        country: data.geonames[0].countryName,
-      };
+      geonamesData = { ...data.geonames[0] };
 
       let weatherbitKey = apiKeys["weatherbitKey"];
 
@@ -62,7 +59,6 @@ const handleSubmit = (event) => {
       }
     })
     .then((data) => {
-      console.log(data);
       weatherbitData = {
         description: data.data[day].weather.description,
         temperature: data.data[day].temp,
