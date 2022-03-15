@@ -59,12 +59,7 @@ const handleSubmit = (event) => {
       }
     })
     .then((data) => {
-      weatherbitData = {
-        description: data.data[day].weather.description,
-        temperature: data.data[day].temp,
-        date: data.data[day].datetime,
-        icon: data.data[day].weather.icon,
-      };
+      weatherbitData = { ...data.data[day] };
 
       let pixabayKey = apiKeys["pixabayKey"];
 

@@ -3,7 +3,6 @@ const updateUI = async () => {
   const req = await fetch("http://localhost:3001/all");
   try {
     const allData = await req.json();
-    console.log(allData);
     document.getElementById("intro").innerHTML = "Your upcoming trip to ";
     document.getElementById(
       "location"
@@ -13,16 +12,16 @@ const updateUI = async () => {
     ).innerHTML = `For ${allData.duration} nights`;
     document.getElementById(
       "date"
-    ).innerHTML = `${allData.weatherbitData.date}`;
+    ).innerHTML = `${allData.weatherbitData.datetime}`;
     document.getElementById(
       "weather-icon"
-    ).innerHTML = `${allData.weatherbitData.icon}`;
+    ).innerHTML = `${allData.weatherbitData.weather.icon}`;
     document.getElementById(
       "description"
-    ).innerHTML = `${allData.weatherbitData.description}`;
+    ).innerHTML = `${allData.weatherbitData.weather.description}`;
     document.getElementById(
       "temperature"
-    ).innerHTML = `${allData.weatherbitData.temperature} degrees`;
+    ).innerHTML = `${allData.weatherbitData.temp} degrees`;
     document.getElementById("image-1").src = `${allData.pixabayData.imageOne}`;
     document.getElementById("image-2").src = `${allData.pixabayData.imageTwo}`;
     document.getElementById(
