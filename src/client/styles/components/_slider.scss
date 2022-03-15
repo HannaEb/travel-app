@@ -53,6 +53,7 @@
 .slide > img {
   max-width: 100%;
   max-height: 100%;
+  background-color: $color-primary-light;
 
   @include respond(small) {
     max-width: 80%;
@@ -96,6 +97,10 @@
       right: 5%;
       border-radius: 0.5rem;
     }
+  }
+
+  &:hover {
+    opacity: 0.9;
   }
 }
 

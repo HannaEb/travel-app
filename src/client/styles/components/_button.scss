@@ -20,16 +20,20 @@
     margin-top: 8rem;
     text-transform: uppercase;
     font-family: $font-serif;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   &--standard {
     background-color: $color-primary-medium;
     color: $color-white;
     padding: 1rem 3rem;
-  }
 
-  &:hover {
-    transform: scale(1.1);
+    &:hover {
+      opacity: 0.9;
+    }
   }
 
   &:active,
