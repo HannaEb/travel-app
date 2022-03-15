@@ -2,8 +2,8 @@
   height: 100vh;
 
   background-image: linear-gradient(
-      rgba($color-primary-medium, 0),
-      rgba($color-primary-medium, 0)
+      rgba($color-primary-medium, 0.9),
+      rgba($color-primary-medium, 0.5)
     ),
     url(../media/header-small.jpg);
   background-size: cover;
@@ -14,8 +14,8 @@
 
   @media (min-resolution: 192dpi) and (min-width: 37.5em) {
     background-image: linear-gradient(
-        rgba($color-primary-medium, 0),
-        rgba($color-primary-medium, 0)
+        rgba($color-primary-medium, 0.9),
+        rgba($color-primary-medium, 0.5)
       ),
       url(../media/header.jpg);
   }
@@ -25,7 +25,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -15%);
+    transform: translate(-50%, -35%);
     width: min-content;
   }
 }
