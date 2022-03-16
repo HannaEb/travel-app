@@ -17,6 +17,7 @@ const closeModal = () => {
   overlay.classList.add("hidden");
 };
 
+// Scroll to and show content on submit
 const scroll = () => {
   destination.scrollIntoView({ behavior: "smooth" });
 };
