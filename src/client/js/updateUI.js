@@ -3,7 +3,6 @@ const updateUI = async () => {
   const req = await fetch("http://localhost:3001/all");
   try {
     const allData = await req.json();
-    document.getElementById("intro").innerHTML = "Your upcoming trip to ";
     document.getElementById(
       "location"
     ).innerHTML = `${allData.geonamesData.name}, ${allData.geonamesData.countryName}`;
