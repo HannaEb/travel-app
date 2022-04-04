@@ -28,7 +28,7 @@ const handleSubmit = (event) => {
       apiKeys = data;
       let geonamesKey = apiKeys["geonamesKey"];
       return getData(
-        geonamesURL + destination + "&maxRows=1&username=" + geonamesKey
+        `${geonamesURL + destination}&maxRows=1&username=${geonamesKey}`
       );
     })
     .then((data) => {
@@ -39,23 +39,11 @@ const handleSubmit = (event) => {
 
       if (days <= 7) {
         return getData(
-          weatherbitCurrentURL +
-            "lat=" +
-            data.geonames[0].lat +
-            "&lon=" +
-            data.geonames[0].lng +
-            "&key=" +
-            weatherbitKey
+          `${weatherbitCurrentURL}lat=${data.geonames[0].lat}&lon=${data.geonames[0].lng}&key=${weatherbitKey}`
         );
       } else {
         return getData(
-          weatherbitForecastURL +
-            "lat=" +
-            data.geonames[0].lat +
-            "&lon=" +
-            data.geonames[0].lng +
-            "&key=" +
-            weatherbitKey
+          `${weatherbitForecastURL}lat=${data.geonames[0].lat}&lon=${data.geonames[0].lng}&key=${weatherbitKey}`
         );
       }
     })
@@ -65,12 +53,7 @@ const handleSubmit = (event) => {
       let pixabayKey = apiKeys["pixabayKey"];
 
       return getData(
-        pixabayURL +
-          "key=" +
-          pixabayKey +
-          "&q=" +
-          destination +
-          "&image-type=photo&orientation=horizontal"
+        `${pixabayURL}key=${pixabayKey}&q=${destination}&image-type=photo&orientation=horizontal`
       );
     })
     .then((data) => {
