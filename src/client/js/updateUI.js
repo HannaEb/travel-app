@@ -4,6 +4,7 @@ const updateUI = async () => {
   try {
     const allData = await req.json();
 
+    // Update destination details
     const introContainer = document.querySelector(".destination__details");
     const introHTML = `
       <p class="destination__intro" id="intro">Your upcoming trip to</p>
@@ -12,6 +13,7 @@ const updateUI = async () => {
     `;
     introContainer.insertAdjacentHTML("beforeend", introHTML);
 
+    // Update weather information
     const weatherContainer = document.querySelector(".destination__weather");
     const weatherHTML = `
       <div class="weather-card" id="weather">
@@ -22,6 +24,7 @@ const updateUI = async () => {
     `;
     weatherContainer.insertAdjacentHTML("beforeend", weatherHTML);
 
+    // Update image slider
     const slideContainer = document.querySelectorAll(".slide");
     let slideHTML;
 
@@ -42,6 +45,7 @@ const updateUI = async () => {
       slideContainer[i].insertAdjacentHTML("beforeend", slideHTML);
     }
 
+    // Update link to Tripadvisor
     const tripadvisorContainer = document.querySelector(".tripadvisor");
     const tripadvisorHTML = `
       <a href = https://www.tripadvisor.com/Search?q=${allData.geonamesData.name} class="btn btn--standard" id="btn-tripadvisor" target="_blank"
