@@ -15,11 +15,18 @@ const updateUI = async () => {
 
     // Update weather information
     const weatherContainer = document.querySelector(".destination__weather");
+    const weatherDate = new Date(allData.weatherbitData.datetime.slice(0, 10));
+    console.log(weatherDate);
     const weatherHTML = `
       <div class="weather-card" id="weather">
-        <p class="weather-card__date" id="date">${allData.weatherbitData.datetime}</p>
-        <p class="weather-card__desc" id="description">${allData.weatherbitData.weather.description}</p>
-        <p class="weather-card__temp" id="temperature">${allData.weatherbitData.temp} degrees</p>
+        <h3>Weather Information</h3>
+        <p class="weather-card__date" id="date">${weatherDate.toDateString()}</p>
+        <p class="weather-card__desc" id="description">${
+          allData.weatherbitData.weather.description
+        }</p>
+        <p class="weather-card__temp" id="temperature">${
+          allData.weatherbitData.temp
+        } &#176C</p>
       </div>
     `;
     weatherContainer.insertAdjacentHTML("beforeend", weatherHTML);
