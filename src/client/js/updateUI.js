@@ -3,59 +3,51 @@ const updateUI = async () => {
   const req = await fetch("http://localhost:3001/all");
   try {
     const allData = await req.json();
+    const { geonamesData, weatherbitData, pixabayData, countryData, duration } =
+      allData;
 
     // Update destination details
-    const introContainer = document.querySelector(".destination__details");
+    const introContainer = document.querySelector(".heading");
     const introHTML = `
-      <p class="destination__intro" id="intro">Your upcoming trip to</p>
-      <h2 class="secondary-heading" id="location">${allData.geonamesData.name}, ${allData.geonamesData.countryName}</h2>
-      <p class="destination__duration" id="duration">For ${allData.duration} nights</p>
+      <p class="heading__intro">Your upcoming trip to</p>
+      <h2 class="secondary-heading">${geonamesData.name}, ${geonamesData.countryName}</h2>
+      <p class="heading__duration">For ${duration} nights</p>
     `;
     introContainer.insertAdjacentHTML("beforeend", introHTML);
 
-    // Update weather information
-    const weatherContainer = document.querySelector(".destination__weather");
-    const weatherDate = new Date(allData.weatherbitData.datetime.slice(0, 10));
-    const weatherHTML = `
-      <div class="weather-card" id="weather">
-        <h3>Weather Info</h3>
-        <p class="weather-card__date" id="date">${weatherDate.toDateString()}</p>
-        <p class="weather-card__desc" id="description">${
-          allData.weatherbitData.weather.description
-        }</p>
-        <p class="weather-card__temp" id="temperature">${
-          allData.weatherbitData.temp
-        } &#176C</p>
+    // Update destination information
+    const infoContainer = document.querySelector(".info-container");
+    const weatherDate = new Date(weatherbitData.datetime.slice(0, 10));
+    const infoHTML = `
+      <div class="info-card">
+        <div class="info-card__general">
+          <h3 class="tertiary-heading">General Info</h3>
+          <p class="info-card__continent">${countryData.continents[0]}</p>
+          <p class="info-card__language">${
+            Object.values(countryData.languages)[0]
+          }</p>
+          <p class="info-card__currency">${
+            Object.values(countryData.currencies)[0].name
+          }</p>
+        </div
+        <div class="info-card__weather">
+          <h3 class="tertiary-heading">Weather Info</h3>
+          <p class="info-card__date">${weatherDate.toDateString()}</p>
+          <p class="info-card__desc">${weatherbitData.weather.description}</p>
+          <p class="info-card__temp">${weatherbitData.temp} &#176C</p>
+        </div>
       </div>
     `;
-    weatherContainer.insertAdjacentHTML("beforeend", weatherHTML);
-
-    // Update general information
-    const generalContainer = document.querySelector(".destination__general");
-    const generalHTML = `
-      <div class="general-info" id="general">
-        <h3>General Info</h3>
-        <p class="general-info__continent">${
-          allData.countryData.continents[0]
-        }</p>
-        <p class="general-info__language">${
-          Object.values(allData.countryData.languages)[0]
-        }</p>
-        <p class="general-info__currency">${
-          Object.values(allData.countryData.currencies)[0].name
-        }</p>
-      </div>
-    `;
-    generalContainer.insertAdjacentHTML("beforeend", generalHTML);
+    infoContainer.insertAdjacentHTML("beforeend", infoHTML);
 
     // Update image slider
     const slideContainer = document.querySelectorAll(".slide");
     let slideHTML;
 
     const images = [
-      `${allData.pixabayData.imageOne}`,
-      `${allData.pixabayData.imageTwo}`,
-      `${allData.pixabayData.imageThree}`,
+      `${pixabayData.imageOne}`,
+      `${pixabayData.imageTwo}`,
+      `${pixabayData.imageThree}`,
     ];
 
     for (let i = 0; i < images.length; i++) {
@@ -72,7 +64,7 @@ const updateUI = async () => {
     // Update link to Tripadvisor
     const tripadvisorContainer = document.querySelector(".tripadvisor");
     const tripadvisorHTML = `
-      <a href = https://www.tripadvisor.com/Search?q=${allData.geonamesData.name} class="btn btn--standard" id="btn-tripadvisor" target="_blank"
+      <a href = https://www.tripadvisor.com/Search?q=${geonamesData.name} class="btn btn--standard" id="btn-tripadvisor" target="_blank"
         >More on Tripadvisor &rarr;</a
       >
     `;

@@ -57,7 +57,6 @@ const handleSubmit = (event) => {
     })
     .then((data) => {
       countryData = { ...data[0] };
-      console.log(countryData);
 
       let pixabayKey = apiKeys["pixabayKey"];
 
@@ -74,11 +73,11 @@ const handleSubmit = (event) => {
     })
     .then(() => {
       postData("http://localhost:3001/add", {
-        duration,
         geonamesData,
         weatherbitData,
         pixabayData,
         countryData,
+        duration,
       });
     })
     .then(() => Client.updateUI());
