@@ -3,12 +3,14 @@ const geonamesURL = "http://api.geonames.org/searchJSON?q=";
 const weatherbitCurrentURL = "http://api.weatherbit.io/v2.0/current?";
 const weatherbitForecastURL = "http://api.weatherbit.io/v2.0/forecast/daily?";
 const pixabayURL = "https://pixabay.com/api/?";
+const countriesURL = "https://restcountries.com/v3.1/alpha/";
 
 // Declare variables
 let apiKeys = {};
 let geonamesData = {};
 let weatherbitData = {};
 let pixabayData = {};
+let countryData = {};
 
 // Callback function
 const handleSubmit = (event) => {
@@ -20,6 +22,7 @@ const handleSubmit = (event) => {
   let duration = Client.calcDays(startDate, endDate) - 1;
   let days = Client.calcDays(Date.now(), startDate);
   let day;
+  let countryCode;
 
   days <= 7 || days > 16 ? (day = 0) : (day = days);
 
@@ -33,6 +36,7 @@ const handleSubmit = (event) => {
     })
     .then((data) => {
       geonamesData = { ...data.geonames[0] };
+      countryCode = geonamesData.countryCode;
 
       let weatherbitKey = apiKeys["weatherbitKey"];
 
@@ -48,6 +52,12 @@ const handleSubmit = (event) => {
     })
     .then((data) => {
       weatherbitData = { ...data.data[day] };
+
+      return getData(`${countriesURL}${countryCode}`);
+    })
+    .then((data) => {
+      countryData = { ...data[0] };
+      console.log(countryData);
 
       let pixabayKey = apiKeys["pixabayKey"];
 
@@ -68,6 +78,7 @@ const handleSubmit = (event) => {
         geonamesData,
         weatherbitData,
         pixabayData,
+        countryData,
       });
     })
     .then(() => Client.updateUI());

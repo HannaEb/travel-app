@@ -16,10 +16,9 @@ const updateUI = async () => {
     // Update weather information
     const weatherContainer = document.querySelector(".destination__weather");
     const weatherDate = new Date(allData.weatherbitData.datetime.slice(0, 10));
-    console.log(weatherDate);
     const weatherHTML = `
       <div class="weather-card" id="weather">
-        <h3>Weather Information</h3>
+        <h3>Weather Info</h3>
         <p class="weather-card__date" id="date">${weatherDate.toDateString()}</p>
         <p class="weather-card__desc" id="description">${
           allData.weatherbitData.weather.description
@@ -30,6 +29,24 @@ const updateUI = async () => {
       </div>
     `;
     weatherContainer.insertAdjacentHTML("beforeend", weatherHTML);
+
+    // Update general information
+    const generalContainer = document.querySelector(".destination__general");
+    const generalHTML = `
+      <div class="general-info" id="general">
+        <h3>General Info</h3>
+        <p class="general-info__continent">${
+          allData.countryData.continents[0]
+        }</p>
+        <p class="general-info__language">${
+          Object.values(allData.countryData.languages)[0]
+        }</p>
+        <p class="general-info__currency">${
+          Object.values(allData.countryData.currencies)[0].name
+        }</p>
+      </div>
+    `;
+    generalContainer.insertAdjacentHTML("beforeend", generalHTML);
 
     // Update image slider
     const slideContainer = document.querySelectorAll(".slide");
