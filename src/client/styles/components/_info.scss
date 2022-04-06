@@ -5,8 +5,13 @@
   &__section {
     padding: 4rem;
 
-    &:not(:last-child) {
+    &:first-child {
+      text-align: right;
       border-right: 1px solid $color-primary-medium;
+    }
+
+    &:last-child {
+      text-align: left;
     }
   }
 }

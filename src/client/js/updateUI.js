@@ -22,19 +22,21 @@ const updateUI = async () => {
       <div class="info-card">
         <div class="info-card__section">
           <h3 class="tertiary-heading">General Info</h3>
-          <p class="info-card__continent">${countryData.continents[0]}</p>
+          <p class="info-card__continent">${countryData.continents[0]} 🌍 </p>
           <p class="info-card__language">${
             Object.values(countryData.languages)[0]
-          }</p>
+          } 💬</p>
           <p class="info-card__currency">${
             Object.values(countryData.currencies)[0].name
-          }</p>
+          } 💰</p>
         </div>
         <div class="info-card__section">
           <h3 class="tertiary-heading">Weather Info</h3>
-          <p class="info-card__date">${weatherDate.toDateString()}</p>
-          <p class="info-card__desc">${weatherbitData.weather.description}</p>
-          <p class="info-card__temp">${weatherbitData.temp} &#176C</p>
+          <p class="info-card__date">🗓️ ${weatherDate.toDateString()}</p>
+          <p class="info-card__desc">🌦️ ${
+            weatherbitData.weather.description
+          }</p>
+          <p class="info-card__temp">🌡️ ${weatherbitData.temp} &#176C</p>
         </div>
       </div>
     `;

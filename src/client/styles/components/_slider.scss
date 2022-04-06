@@ -7,7 +7,7 @@
 
   @include respond(x-small) {
     height: 40rem;
-    margin: 2vw auto;
+    margin: 5vw auto;
   }
 
   @include respond(small) {
@@ -16,7 +16,7 @@
   }
 
   @include respond(medium) {
-    margin: 5rem auto;
+    margin: 8rem auto;
   }
 
   @include respond(large) {

@@ -1,14 +1,14 @@
 body {
   font-family: $font-sans;
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 2rem;
   line-height: 1.5;
   color: $color-primary-dark;
 }
 
 .primary-heading {
   font-family: $font-serif;
-  font-size: 6rem;
+  font-size: 7rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
   color: $color-white;
@@ -17,13 +17,14 @@ body {
 
 .secondary-heading {
   text-transform: uppercase;
-  font-size: 2.5rem;
+  font-size: 3rem;
   letter-spacing: 0.3rem;
   font-family: $font-serif;
   color: $color-tertiary;
 }
 
 .tertiary-heading {
+  font-family: $font-serif;
   margin-bottom: 1rem;
 }
 
