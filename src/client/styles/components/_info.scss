@@ -1,0 +1,12 @@
+.info-card {
+  display: flex;
+  justify-content: center;
+
+  &__section {
+    padding: 4rem;
+
+    &:not(:last-child) {
+      border-right: 1px solid $color-primary-medium;
+    }
+  }
+}

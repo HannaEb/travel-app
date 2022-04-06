@@ -7,10 +7,9 @@
     padding: 5rem 0 2rem 0;
   }
 
-  &__weather {
-    padding: 2rem 0;
-    display: flex;
-    justify-content: center;
+  &__info {
+    padding: 4rem 0;
+    background-color: $color-primary-light;
   }
 }
 

@@ -20,7 +20,7 @@ const updateUI = async () => {
     const weatherDate = new Date(weatherbitData.datetime.slice(0, 10));
     const infoHTML = `
       <div class="info-card">
-        <div class="info-card__general">
+        <div class="info-card__section">
           <h3 class="tertiary-heading">General Info</h3>
           <p class="info-card__continent">${countryData.continents[0]}</p>
           <p class="info-card__language">${
@@ -29,8 +29,8 @@ const updateUI = async () => {
           <p class="info-card__currency">${
             Object.values(countryData.currencies)[0].name
           }</p>
-        </div
-        <div class="info-card__weather">
+        </div>
+        <div class="info-card__section">
           <h3 class="tertiary-heading">Weather Info</h3>
           <p class="info-card__date">${weatherDate.toDateString()}</p>
           <p class="info-card__desc">${weatherbitData.weather.description}</p>
