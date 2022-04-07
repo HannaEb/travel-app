@@ -1,6 +1,8 @@
 .info-card {
   display: flex;
   justify-content: center;
+  background-color: $color-primary-light;
+  padding: 5rem 0;
 
   &__section {
     padding: 4rem;

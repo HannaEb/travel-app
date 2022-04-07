@@ -20,3 +20,9 @@ body {
   box-sizing: border-box;
   font-size: 1.6rem;
 }
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
