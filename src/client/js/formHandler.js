@@ -7,7 +7,6 @@ const countriesURL = "https://restcountries.com/v3.1/alpha/";
 
 // Declare variables
 const submitBtn = document.querySelector("#generate");
-const destinationSection = document.querySelector("#destination--1");
 let apiKeys = {};
 let geonamesData = {};
 let weatherbitData = {};
@@ -83,23 +82,15 @@ const handleSubmit = (event) => {
       });
     })
     .then(() => Client.updateUI())
-    .then(() => showDestination())
-    .then(() => scroll());
+    .then(() => Client.revealInfo());
+  // .then(() => showDestination())
+  // .then(() => scroll());
 };
 
 // Event listener for action to be performed
 document.addEventListener("DOMContentLoaded", () => {
   submitBtn.addEventListener("click", handleSubmit);
 });
-
-// Scroll to and show content on submit
-const scroll = () => {
-  destinationSection.scrollIntoView({ behavior: "smooth" });
-};
-
-const showDestination = () => {
-  destinationSection.classList.remove("hidden");
-};
 
 // GET request
 const getData = async (url) => {

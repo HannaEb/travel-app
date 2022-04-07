@@ -4,6 +4,7 @@ import { calcDays } from "./js/calculateDays";
 import { retrieveApiKeys } from "./js/retrieveApiKeys";
 import { openModal, closeModal } from "./js/modal";
 import { nextSlide, previousSlide } from "./js/slider";
+import { revealInfo } from "./js/revealInfo";
 
 import "./styles/main.scss";
 
@@ -16,4 +17,5 @@ export {
   closeModal,
   nextSlide,
   previousSlide,
+  revealInfo,
 };
