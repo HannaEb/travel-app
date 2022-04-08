@@ -5,7 +5,6 @@ const updateUI = async () => {
     const allData = await req.json();
     const { geonamesData, weatherbitData, pixabayData, countryData, duration } =
       allData;
-    console.log(allData);
 
     // Update destination details
     const introContainer = document.querySelector(".heading");
