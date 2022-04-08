@@ -4,6 +4,7 @@ const weatherbitCurrentURL = "http://api.weatherbit.io/v2.0/current?";
 const weatherbitForecastURL = "http://api.weatherbit.io/v2.0/forecast/daily?";
 const pixabayURL = "https://pixabay.com/api/?";
 const countriesURL = "https://restcountries.com/v3.1/alpha/";
+// const geonamesURL = "http://api.geonmes.org/searchJSON?q=";
 
 // Declare variables
 const submitBtn = document.querySelector("#generate");
@@ -98,7 +99,7 @@ const getData = async (url) => {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.log("error", error);
+    console.log(error);
   }
 };
 
