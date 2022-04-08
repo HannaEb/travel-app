@@ -28,6 +28,13 @@
     transform: translate(-50%, -35%);
     width: min-content;
   }
+
+  &__loader {
+    margin-top: 5rem;
+    color: $color-white;
+    font-family: "Baskerville", serif;
+    font-size: 3rem;
+  }
 }
 
 .logo {

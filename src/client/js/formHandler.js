@@ -82,9 +82,8 @@ const handleSubmit = (event) => {
       });
     })
     .then(() => Client.updateUI())
+    .then(() => Client.hideLoader())
     .then(() => Client.revealInfo());
-  // .then(() => showDestination())
-  // .then(() => scroll());
 };
 
 // Event listener for action to be performed

@@ -5,6 +5,7 @@ import { retrieveApiKeys } from "./js/retrieveApiKeys";
 import { openModal, closeModal } from "./js/modal";
 import { nextSlide, previousSlide } from "./js/slider";
 import { revealInfo } from "./js/revealInfo";
+import { showLoader, hideLoader } from "./js/loader";
 
 import "./styles/main.scss";
 
@@ -18,4 +19,6 @@ export {
   nextSlide,
   previousSlide,
   revealInfo,
+  showLoader,
+  hideLoader,
 };
