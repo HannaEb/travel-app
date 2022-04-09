@@ -5,21 +5,19 @@ const updateUI = async () => {
     const allData = await req.json();
     const { geonamesData, weatherbitData, pixabayData, countryData, duration } =
       allData;
-    console.log(allData);
 
     // Update destination details
     const introContainer = document.querySelector(".heading");
-    const introHTML = `
+    introContainer.innerHTML = `
       <p class="heading__intro">Your upcoming trip to</p>
       <h2 class="secondary-heading">${geonamesData.name}, ${geonamesData.countryName}</h2>
       <p class="heading__duration">For ${duration} nights</p>
     `;
-    introContainer.insertAdjacentHTML("beforeend", introHTML);
 
     // Update destination information
     const infoContainer = document.querySelector(".info-container");
     const weatherDate = new Date(weatherbitData.datetime.slice(0, 10));
-    const infoHTML = `
+    infoContainer.innerHTML = `
       <div class="info-card">
         <div class="info-card__section">
           <h3 class="tertiary-heading">General Info</h3>
@@ -41,11 +39,9 @@ const updateUI = async () => {
         </div>
       </div>
     `;
-    infoContainer.insertAdjacentHTML("beforeend", infoHTML);
 
     // Update image slider
     const slideContainer = document.querySelectorAll(".slider__slide");
-    let slideHTML;
 
     const images = [
       `${pixabayData.imageOne}`,
@@ -54,24 +50,22 @@ const updateUI = async () => {
     ];
 
     for (let i = 0; i < images.length; i++) {
-      slideHTML = `
+      slideContainer[i].innerHTML = `
       <img
           src="${images[i]}"
           class="destination-img"
           onerror="this.style.display = 'none'"
         />
       `;
-      slideContainer[i].insertAdjacentHTML("beforeend", slideHTML);
     }
 
     // Update link to Tripadvisor
     const tripadvisorContainer = document.querySelector(".tripadvisor");
-    const tripadvisorHTML = `
+    tripadvisorContainer.innerHTML = `
       <a href = https://www.tripadvisor.com/Search?q=${geonamesData.name} class="btn btn--standard" id="btn-tripadvisor" target="_blank"
         >More on Tripadvisor &rarr;</a
       >
     `;
-    tripadvisorContainer.insertAdjacentHTML("beforeend", tripadvisorHTML);
   } catch (error) {
     console.log("error", error);
   }
