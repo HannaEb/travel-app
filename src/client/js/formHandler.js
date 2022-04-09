@@ -4,7 +4,6 @@ const weatherbitCurrentURL = "http://api.weatherbit.io/v2.0/current?";
 const weatherbitForecastURL = "http://api.weatherbit.io/v2.0/forecast/daily?";
 const pixabayURL = "https://pixabay.com/api/?";
 const countriesURL = "https://restcountries.com/v3.1/alpha/";
-// const geonamesURL = "http://api.geonmes.org/searchJSON?q=";
 
 // Declare variables
 const submitBtn = document.querySelector("#generate");
@@ -18,11 +17,11 @@ let countryData = {};
 const handleSubmit = (event) => {
   event.preventDefault();
 
-  const destination = document.getElementById("destination").value;
-  const startDate = document.getElementById("startDate").value;
-  const endDate = document.getElementById("endDate").value;
-  let duration = Client.calcDays(startDate, endDate) - 1;
-  let days = Client.calcDays(Date.now(), startDate);
+  const destination = document.getElementById("destination");
+  const startDate = document.getElementById("startDate");
+  const endDate = document.getElementById("endDate");
+  let duration = Client.calcDays(startDate.value, endDate.value) - 1;
+  let days = Client.calcDays(Date.now(), startDate.value);
   let day;
   let countryCode;
 
@@ -33,7 +32,7 @@ const handleSubmit = (event) => {
       apiKeys = data;
       let geonamesKey = apiKeys["geonamesKey"];
       return getData(
-        `${geonamesURL + destination}&maxRows=1&username=${geonamesKey}`
+        `${geonamesURL + destination.value}&maxRows=1&username=${geonamesKey}`
       );
     })
     .then((data) => {
@@ -63,7 +62,7 @@ const handleSubmit = (event) => {
       let pixabayKey = apiKeys["pixabayKey"];
 
       return getData(
-        `${pixabayURL}key=${pixabayKey}&q=${destination}&image-type=photo&orientation=horizontal`
+        `${pixabayURL}key=${pixabayKey}&q=${destination.value}&image-type=photo&orientation=horizontal`
       );
     })
     .then((data) => {
@@ -81,6 +80,10 @@ const handleSubmit = (event) => {
         countryData,
         duration,
       });
+
+      destination.value = "";
+      startDate.value = "";
+      endDate.value = "";
     })
     .then(() => Client.updateUI())
     .then(() => Client.hideLoader())
@@ -111,6 +114,7 @@ const postData = async (url = "", data = {}) => {
     headers: {
       "Content-Type": "application/json",
     },
+    redirect: "follow",
     body: JSON.stringify(data),
   });
   try {
