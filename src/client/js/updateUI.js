@@ -5,6 +5,7 @@ const updateUI = async () => {
     const allData = await req.json();
     const { geonamesData, weatherbitData, pixabayData, countryData, duration } =
       allData;
+    console.log(allData)
 
     // Update destination details
     const introContainer = document.querySelector(".heading");
@@ -43,7 +44,7 @@ const updateUI = async () => {
     infoContainer.insertAdjacentHTML("beforeend", infoHTML);
 
     // Update image slider
-    const slideContainer = document.querySelectorAll(".slide");
+    const slideContainer = document.querySelectorAll(".slider__slide");
     let slideHTML;
 
     const images = [

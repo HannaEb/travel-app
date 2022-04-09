@@ -1,5 +1,5 @@
 // Declare variables
-const slides = document.querySelectorAll(".slide");
+const slides = document.querySelectorAll(".slider__slide");
 const leftBtn = document.querySelector(".slider__btn--left");
 const rightBtn = document.querySelector(".slider__btn--right");
 
