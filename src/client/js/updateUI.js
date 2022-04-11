@@ -62,7 +62,10 @@ const updateUI = async () => {
     // Update link to Tripadvisor
     const tripadvisorContainer = document.querySelector(".tripadvisor");
     tripadvisorContainer.innerHTML = `
-      <a href = https://www.tripadvisor.com/Search?q=${geonamesData.name} class="btn btn--standard" id="btn-tripadvisor" target="_blank"
+      <a href = https://www.tripadvisor.com/Search?q=${geonamesData.name.replaceAll(
+        / /g,
+        "%20"
+      )} class="btn btn--standard" id="btn-tripadvisor" target="_blank"
         >More on Tripadvisor &rarr;</a
       >
     `;
