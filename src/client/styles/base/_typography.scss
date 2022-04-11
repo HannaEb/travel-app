@@ -8,11 +8,15 @@ body {
 
 .primary-heading {
   font-family: $font-serif;
-  font-size: 7rem;
+  font-size: 6rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
   color: $color-white;
   text-shadow: 0 0.3rem 0.5rem $color-primary-dark;
+
+  @include respond(small) {
+    font-size: 7rem;
+  }
 }
 
 .secondary-heading {

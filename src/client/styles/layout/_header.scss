@@ -30,8 +30,9 @@
   }
 
   &__loader {
-    display: inline-block;
-    margin-top: 5rem;
+    width: fit-content;
+    block-size: 100%;
+    margin: 5rem auto 0 auto;
     color: $color-white;
     font-family: "Baskerville", serif;
     font-size: 3rem;

@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
 
-    <title>Travel Planner</title>
+    <title>Travel Information</title>
     <link rel="shortcut icon" type="image/png" href="./../media/favicon.png" />
   </head>
   <body>
@@ -23,8 +23,8 @@
       <header class="header">
         <img src="./../media/logo.png" alt="logo" class="logo" />
         <div class="header__text">
-          <h1 class="primary-heading">Travel Planner</h1>
-          <button class="btn btn--open-modal">Add trip</button>
+          <h1 class="primary-heading">Travel Information</h1>
+          <button class="btn btn--open-modal">Get info</button>
           <p class="header__loader hidden">Loading...</p>
         </div>
       </header>
@@ -40,9 +40,21 @@
             required
           />
           <label for="startDate" class="form__label">From</label>
-          <input type="date" class="form__input" id="startDate" name="date" required/>
+          <input
+            type="date"
+            class="form__input"
+            id="startDate"
+            name="date"
+            required
+          />
           <label for="endDate" class="form__label">To</label>
-          <input type="date" class="form__input" id="endDate" name="date" required/>
+          <input
+            type="date"
+            class="form__input"
+            id="endDate"
+            name="date"
+            required
+          />
           <button
             class="btn btn--standard form__btn"
             type="submit"
