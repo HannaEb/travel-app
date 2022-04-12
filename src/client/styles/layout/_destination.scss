@@ -1,13 +1,11 @@
-.section-destination {
-  text-align: center;
-}
-
 .destination {
+  text-align: center;
+
   &__details {
     padding: 8rem 0;
   }
-}
 
-.tripadvisor {
-  padding: 4rem 0 6rem 0;
+  &__tripadvisor {
+    padding: 4rem 0 6rem 0;
+  }
 }

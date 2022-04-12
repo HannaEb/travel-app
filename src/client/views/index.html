@@ -21,76 +21,84 @@
   <body>
     <div class="container">
       <header class="header">
-        <img src="./../media/logo.png" alt="logo" class="logo" />
-        <div class="header__text">
-          <h1 class="primary-heading">Travel Information</h1>
-          <button class="btn btn--open-modal">Get info</button>
-          <p class="header__loader hidden">Loading...</p>
+        <div class="header__container">
+          <img src="./../media/logo.png" alt="logo" class="header__logo" />
+          <div class="header__text">
+            <h1 class="primary-heading">Travel Information</h1>
+            <button class="btn btn--open-modal">Get info</button>
+            <p class="header__loader hidden">Loading...</p>
+          </div>
         </div>
+
+        <div class="modal hidden">
+          <button class="btn--close-modal">&times;</button>
+          <form class="form">
+            <label for="destination" class="form__label">Destination</label>
+            <input
+              type="text"
+              class="form__input"
+              placeholder="Enter City"
+              id="destination"
+              required
+            />
+            <label for="startDate" class="form__label">From</label>
+            <input
+              type="date"
+              class="form__input"
+              id="startDate"
+              name="date"
+              required
+            />
+            <label for="endDate" class="form__label">To</label>
+            <input
+              type="date"
+              class="form__input"
+              id="endDate"
+              name="date"
+              required
+            />
+            <button
+              class="btn btn--standard form__btn"
+              type="submit"
+              id="generate"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+        <div class="overlay hidden"></div>
       </header>
-      <div class="modal hidden">
-        <button class="btn--close-modal">&times;</button>
-        <form class="form">
-          <label for="destination" class="form__label">Destination</label>
-          <input
-            type="text"
-            class="form__input"
-            placeholder="Enter City"
-            id="destination"
-            required
-          />
-          <label for="startDate" class="form__label">From</label>
-          <input
-            type="date"
-            class="form__input"
-            id="startDate"
-            name="date"
-            required
-          />
-          <label for="endDate" class="form__label">To</label>
-          <input
-            type="date"
-            class="form__input"
-            id="endDate"
-            name="date"
-            required
-          />
-          <button
-            class="btn btn--standard form__btn"
-            type="submit"
-            id="generate"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-      <div class="overlay hidden"></div>
 
-      <section class="section-destination">
-        <div class="destination hidden" id="destination--1">
-          <div class="destination__details">
-            <div class="heading"></div>
-          </div>
+      <main>
+        <section class="destination">
+          <div class="destination__container hidden" id="destination--1">
+            <div class="destination__details">
+              <div class="heading"></div>
+            </div>
 
-          <div class="destination__info">
-            <div class="info-container"></div>
-          </div>
+            <div class="destination__info">
+              <div class="info-container"></div>
+            </div>
 
-          <div class="slider">
-            <div class="slider__slide"></div>
-            <div class="slider__slide"></div>
-            <div class="slider__slide"></div>
-            <button class="slider__btn slider__btn--left hidden">&#60;</button>
-            <button class="slider__btn slider__btn--right">&#62;</button>
+            <div class="slider">
+              <div class="slider__slide"></div>
+              <div class="slider__slide"></div>
+              <div class="slider__slide"></div>
+              <button class="slider__btn slider__btn--left hidden">
+                &#60;
+              </button>
+              <button class="slider__btn slider__btn--right">&#62;</button>
+            </div>
+            <div class="destination__tripadvisor"></div>
           </div>
-          <div class="tripadvisor"></div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <footer class="footer">
-        <img src="./../media/logo.png" alt="logo" class="footer-logo" />
+        <img src="./../media/logo.png" alt="logo" class="footer__logo" />
         <p class="footer__copyright">&copy; 2022 by Hanna</p>
       </footer>
+
       <script>
         // // Check that service workers are supported
         // if  ('serviceWorker' in navigator) {

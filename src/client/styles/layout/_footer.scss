@@ -6,10 +6,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-.footer-logo {
-  margin-bottom: 2rem;
-  height: 4rem;
-  width: 4rem;
+  &__logo {
+    margin-bottom: 2rem;
+    height: 4rem;
+    width: 4rem;
+  }
 }
