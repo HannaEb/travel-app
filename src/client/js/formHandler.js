@@ -11,6 +11,7 @@ let geonamesData = {};
 let weatherbitData = {};
 let pixabayData = {};
 let countryData = {};
+let requestData = {};
 
 // Callback function
 const handleSubmit = (event) => {
@@ -63,19 +64,24 @@ const handleSubmit = (event) => {
       };
     })
     .then(() => {
-      postData("http://localhost:3001/add", {
+      requestData = {
         geonamesData,
         weatherbitData,
         pixabayData,
         countryData,
         duration,
-      });
+      };
+    })
+    .then(() => {
+      postData("http://localhost:3001/add", requestData);
 
       destination.value = "";
       startDate.value = "";
       endDate.value = "";
     })
-    .then(() => Client.updateUI())
+    .then(() => {
+      Client.updateUI(requestData);
+    })
     .then(() => Client.hideLoader())
     .then(() => Client.revealInfo());
 };

@@ -1,10 +1,8 @@
 // Update UI
-const updateUI = async () => {
-  const req = await fetch("http://localhost:3001/all");
+const updateUI = async (data) => {
   try {
-    const allData = await req.json();
     const { geonamesData, weatherbitData, pixabayData, countryData, duration } =
-      allData;
+      data;
 
     // Update destination details
     const introContainer = document.querySelector(".heading");
