@@ -29,7 +29,7 @@ app.use(express.static("dist"));
 
 // GET API keys
 const getApiKeys = (req, res) => {
-  console.log("First")
+  console.log("First");
   res.send(apiKeys);
 };
 
@@ -37,7 +37,7 @@ app.get("/api", getApiKeys);
 
 // POST route
 const addData = (req, res) => {
-  console.log("Second")
+  console.log("Second");
   projectData = { ...req.body };
 };
 
@@ -45,12 +45,10 @@ app.post("/add", addData);
 
 // GET route
 const sendData = (req, res) => {
-  console.log("Third")
+  console.log("Third");
   res.send(projectData);
 };
 
 app.get("/all", sendData);
-
-
 
 module.exports = app;

@@ -1,7 +1,6 @@
 // Declare API URLs
 const geonamesURL = "http://api.geonames.org/searchJSON?q=";
 const weatherbitCurrentURL = "http://api.weatherbit.io/v2.0/current?";
-const weatherbitForecastURL = "http://api.weatherbit.io/v2.0/forecast/daily?";
 const pixabayURL = "https://pixabay.com/api/?";
 const countriesURL = "https://restcountries.com/v3.1/alpha/";
 
@@ -21,11 +20,7 @@ const handleSubmit = (event) => {
   const startDate = document.getElementById("startDate");
   const endDate = document.getElementById("endDate");
   let duration = Client.calcDays(startDate.value, endDate.value) - 1;
-  let days = Client.calcDays(Date.now(), startDate.value);
-  let day;
   let countryCode;
-
-  days <= 7 || days > 16 ? (day = 0) : (day = days);
 
   Client.retrieveApiKeys()
     .then((data) => {
@@ -41,18 +36,13 @@ const handleSubmit = (event) => {
 
       let weatherbitKey = apiKeys["weatherbitKey"];
 
-      if (days <= 7) {
-        return getData(
-          `${weatherbitCurrentURL}lat=${data.geonames[0].lat}&lon=${data.geonames[0].lng}&key=${weatherbitKey}`
-        );
-      } else {
-        return getData(
-          `${weatherbitForecastURL}lat=${data.geonames[0].lat}&lon=${data.geonames[0].lng}&key=${weatherbitKey}`
-        );
-      }
+      return getData(
+        `${weatherbitCurrentURL}lat=${data.geonames[0].lat}&lon=${data.geonames[0].lng}&key=${weatherbitKey}`
+      );
     })
     .then((data) => {
-      weatherbitData = { ...data.data[day] };
+      weatherbitData = { ...data.data[0] };
+      console.log(data);
 
       return getData(`${countriesURL}${countryCode}`);
     })
@@ -97,10 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // GET request
 const getData = async (url) => {
-  const res = await fetch(url);
   try {
-    const data = await res.json();
-    return data;
+    let res = await fetch(url);
+    return await res.json();
   } catch (error) {
     console.log(error);
   }
@@ -108,20 +97,18 @@ const getData = async (url) => {
 
 // POST request
 const postData = async (url = "", data = {}) => {
-  const res = await fetch(url, {
-    method: "POST",
-    credentials: "same-origin",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    redirect: "follow",
-    body: JSON.stringify(data),
-  });
   try {
-    const newData = await res.json();
-    return newData;
+    let res = await fetch(url, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    return await res.json();
   } catch (error) {
-    console.log("error", error);
+    console.log(error);
   }
 };
 
