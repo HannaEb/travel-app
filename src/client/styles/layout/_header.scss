@@ -42,10 +42,10 @@
     block-size: 100%;
     margin: 5rem auto 0 auto;
     color: $color-white;
-    font-family: "Baskerville", serif;
+    font-family: $font-serif;
     font-size: 3rem;
     padding-bottom: 0.2rem;
-    background: linear-gradient($color-white 0 0) bottom left / 0% 0.2rem
+    background: linear-gradient($color-white 0 0) bottom left/0% 0.2rem
       no-repeat;
     animation: load 2s linear infinite;
 
