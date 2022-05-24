@@ -4,11 +4,13 @@
 
 A travel planner that obtains a destination and travel dates from the user, and displays weather and an image of the location using information obtained from external APIs.
 
+![](src/client/media/screenshot.png)
+
 ## APIs
 
-* [Geonames](http://www.geonames.org/export/web-services.html) 
-* [Weatherbit](https://www.weatherbit.io/account/create)
-* [Pixabay](https://pixabay.com/api/docs/)
+- [Geonames](http://www.geonames.org/export/web-services.html)
+- [Weatherbit](https://www.weatherbit.io/account/create)
+- [Pixabay](https://pixabay.com/api/docs/)
 
 ## Motivation
 
@@ -25,7 +27,7 @@ $ npm run build
 $ npm start
 ```
 
-In the project's root folder, create a .env file with your personal API keys in the following format: 
+In the project's root folder, create a .env file with your personal API keys in the following format:
 
 ```
 GEONAMES_KEY=YOUR_USERNAME
@@ -35,7 +37,7 @@ PIXABAY_KEY=YOUR_API_KEY
 
 ## Testing
 
-Jest. 
+Jest.
 
 ```
 $ npm run test
