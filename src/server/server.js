@@ -31,10 +31,6 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static("dist"));
 
-app.get("/", function (req, res) {
-  res.sendFile("dist/index.html");
-});
-
 const addData = (req, res) => {
   let projectData,
     geonamesData,
