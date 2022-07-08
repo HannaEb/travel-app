@@ -2,13 +2,6 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
-// Setup empty JS object to act as endpoint for all routes
-let projectData = {};
-let geonamesData = {};
-let weatherbitData = {};
-let pixabayData = {};
-let countryData = {};
-
 // Declare API key variables
 const geonamesKey = process.env.GEONAMES_KEY;
 const weatherbitKey = process.env.WEATHERBIT_KEY;
@@ -39,9 +32,14 @@ app.use(cors());
 app.use(express.static("dist"));
 
 const addData = (req, res) => {
+  let projectData,
+    geonamesData,
+    weatherbitData,
+    pixabayData,
+    countryData = {};
+  let countryCode;
   const destination = req.body.destination;
   const duration = req.body.duration;
-  let countryCode;
 
   getData(`${geonamesURL + destination}&maxRows=1&username=${geonamesKey}`)
     .then((data) => {
