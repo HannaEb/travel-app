@@ -11,6 +11,7 @@ A travel planner that obtains a destination and travel dates from the user, and 
 - [Geonames](http://www.geonames.org/export/web-services.html)
 - [Weatherbit](https://www.weatherbit.io/account/create)
 - [Pixabay](https://pixabay.com/api/docs/)
+- [Countries](https://restcountries.com/)
 
 ## Motivation
 
@@ -27,12 +28,16 @@ $ npm run build
 $ npm start
 ```
 
-In the project's root folder, create a .env file with your personal API keys in the following format:
+In the project's root folder, create a .env file with your personal API keys and the API URLs in the following format:
 
 ```
 GEONAMES_KEY=YOUR_USERNAME
 WEATHERBIT_KEY=YOUR_API_KEY
 PIXABAY_KEY=YOUR_API_KEY
+GEONAMES_URL=http://api.geonames.org/searchJSON?q=
+WEATHERBIT_URL=http://api.weatherbit.io/v2.0/current?
+PIXABAY_URL=https://pixabay.com/api/?
+COUNTRIES_URL=https://restcountries.com/v3.1/alpha/
 ```
 
 ## Testing
