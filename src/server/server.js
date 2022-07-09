@@ -31,6 +31,10 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static("dist"));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/", "build")));
+}
+
 const addData = (req, res) => {
   let projectData,
     geonamesData,
