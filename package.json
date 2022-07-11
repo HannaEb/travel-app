@@ -41,5 +41,8 @@
     "supertest": "^6.2.2",
     "terser-webpack-plugin": "^4.2.3",
     "webpack-dev-server": "^3.7.2"
+  },
+  "engines": {
+    "node": "16.15.0"
   }
 }
