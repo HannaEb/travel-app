@@ -7,7 +7,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   entry: "./src/client/index.js",
   output: {
-    path: path.joing(__dirname, "dist"),
+    path: path.join(__dirname, "dist"),
     libraryTarget: "var",
     library: "Client",
   },
