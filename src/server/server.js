@@ -90,7 +90,7 @@ const addData = (req, res) => {
 const getData = async (url) => {
   try {
     let res = await fetch(url);
-    return await res.json();
+    return res.json();
   } catch (error) {
     console.log(error);
   }

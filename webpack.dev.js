@@ -7,6 +7,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   entry: "./src/client/index.js",
   output: {
+    path: path.joing(__dirname, "dist"),
     libraryTarget: "var",
     library: "Client",
   },
@@ -61,6 +62,11 @@ module.exports = {
       // Automatically remove all unused webpack assets on rebuild
       cleanStaleWebpackAssets: true,
       protectWebpackAssets: false,
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        PORT: '"3000"',
+      },
     }),
   ],
 };
