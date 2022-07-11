@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // POST request
 const postData = async (data) => {
-  const res = await fetch("http://localhost:3000/all", {
+  const res = await fetch("/all", {
     method: "POST",
     credentials: "same-origin",
     headers: {
