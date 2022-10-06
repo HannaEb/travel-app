@@ -1,8 +1,8 @@
-// Declare variables
+// Assign variables to HTML elements
 const loader = document.querySelector(".header__loader");
 const submitBtn = document.querySelector("#generate");
 
-// Add / remove hidden class to / from element
+// Add/remove hidden class to/from element
 const showLoader = () => {
   loader.classList.remove("hidden");
 };
