@@ -36,64 +36,57 @@ app.get("/", (req, res) => {
   res.sendFile("dist/index.html");
 });
 
-const addData = (req, res) => {
-  let projectData,
-    geonamesData,
-    weatherbitData,
-    pixabayData,
-    countryData = {};
-  let countryCode;
-  const destination = req.body.destination;
-  const duration = req.body.duration;
-
-  getData(`${geonamesURL + destination}&maxRows=1&username=${geonamesKey}`)
-    .then((data) => {
-      geonamesData = { ...data.geonames[0] };
-      countryCode = geonamesData.countryCode;
-
-      return getData(
-        `${weatherbitURL}lat=${data.geonames[0].lat}&lon=${data.geonames[0].lng}&key=${weatherbitKey}`
-      );
-    })
-    .then((data) => {
-      weatherbitData = { ...data.data[0] };
-
-      return getData(`${countriesURL}${countryCode}`);
-    })
-    .then((data) => {
-      countryData = { ...data[0] };
-
-      return getData(
-        `${pixabayURL}key=${pixabayKey}&q=${destination}&image-type=photo&orientation=horizontal`
-      );
-    })
-    .then((data) => {
-      pixabayData = {
-        imageOne: data.hits[0].webformatURL,
-        imageTwo: data.hits[1].webformatURL,
-        imageThree: data.hits[2].webformatURL,
-      };
-    })
-    .then(() => {
-      projectData = {
-        geonamesData,
-        weatherbitData,
-        pixabayData,
-        countryData,
-        duration,
-      };
-    })
-    .then(() => {
-      res.send(projectData);
-    });
-};
-
-const getData = async (url) => {
+const addData = async (req, res) => {
   try {
-    let res = await fetch(url);
-    return res.json();
+    const { destination, duration } = req.body;
+
+    const resGeonames = await fetch(
+      `${geonamesURL + destination}&maxRows=1&username=${geonamesKey}`
+    );
+    if (!resGeonames.ok) throw new Error("Problem getting data");
+    const geonamesVar = await resGeonames.json();
+
+    const geonamesData = { ...geonamesVar.geonames[0] };
+    const countryCode = geonamesData.countryCode;
+
+    const resWeatherbit = await fetch(
+      `${weatherbitURL}lat=${geonamesVar.geonames[0].lat}&lon=${geonamesVar.geonames[0].lng}&key=${weatherbitKey}`
+    );
+    if (!resWeatherbit.ok) throw new Error("Problem getting data");
+    const weatherbit = await resWeatherbit.json();
+
+    const weatherbitData = { ...weatherbit.data[0] };
+
+    const resCountries = await fetch(`${countriesURL}${countryCode}`);
+    if (!resCountries.ok) throw new Error("Problem getting data");
+    const countries = await resCountries.json();
+
+    const countryData = { ...countries[0] };
+
+    const resPixabay = await fetch(
+      `${pixabayURL}key=${pixabayKey}&q=${destination}&image-type=photo&orientation=horizontal`
+    );
+    if (!resPixabay.ok) throw new Error("Problem getting data");
+    const pixabay = await resPixabay.json();
+
+    const pixabayData = {
+      imageOne: pixabay.hits[0].webformatURL,
+      imageTwo: pixabay.hits[1].webformatURL,
+      imageThree: pixabay.hits[2].webformatURL,
+    };
+
+    const projectData = {
+      geonamesData,
+      weatherbitData,
+      pixabayData,
+      countryData,
+      duration,
+    };
+
+    res.send(projectData);
   } catch (error) {
     console.log(error);
+    throw error;
   }
 };
 
