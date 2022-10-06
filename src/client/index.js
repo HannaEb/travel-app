@@ -1,6 +1,6 @@
 import { handleSubmit } from "./js/formHandler";
 import { updateUI } from "./js/updateUI";
-import { calcDays } from "./js/calculateDays";
+import { calcNights } from "./js/calculateNights";
 import { openModal, closeModal } from "./js/modal";
 import { nextSlide, previousSlide } from "./js/slider";
 import { revealInfo } from "./js/revealInfo";
@@ -11,7 +11,7 @@ import "./styles/main.scss";
 export {
   handleSubmit,
   updateUI,
-  calcDays,
+  calcNights,
   openModal,
   closeModal,
   nextSlide,
