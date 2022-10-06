@@ -1,12 +1,12 @@
-// Declare variables
+//  Assing variable to HTML element
 const destinationSection = document.querySelector("#destination--1");
 
+// Scroll to and show content on submit
 const revealInfo = () => {
   showDestination();
   scroll();
 };
 
-// Scroll to and show content on submit
 const scroll = () => {
   destinationSection.scrollIntoView({ behavior: "smooth" });
 };
