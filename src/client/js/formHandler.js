@@ -1,15 +1,14 @@
-// Declare variables
+// Assign variables to HTML elements
 const submitBtn = document.querySelector("#generate");
+const destination = document.getElementById("destination");
+const startDate = document.getElementById("startDate");
+const endDate = document.getElementById("endDate");
 
-// Callback function
+// Handle form submit
 const handleSubmit = (event) => {
   event.preventDefault();
 
-  const destination = document.getElementById("destination");
-  const startDate = document.getElementById("startDate");
-  const endDate = document.getElementById("endDate");
-  const duration = Client.calcDays(startDate.value, endDate.value) - 1;
-
+  const duration = Client.calcNights(startDate.value, endDate.value);
   const data = {
     destination: destination.value,
     duration: duration,
@@ -22,7 +21,7 @@ const handleSubmit = (event) => {
   endDate.value = "";
 };
 
-// Event listener for action to be performed
+// Event listener to handle form submit
 document.addEventListener("DOMContentLoaded", () => {
   submitBtn.addEventListener("click", handleSubmit);
 });
