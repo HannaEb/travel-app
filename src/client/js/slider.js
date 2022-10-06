@@ -1,8 +1,9 @@
-// Declare variables
+// Assign variables to HTML elements
 const slides = document.querySelectorAll(".slider__slide");
 const leftBtn = document.querySelector(".slider__btn--left");
 const rightBtn = document.querySelector(".slider__btn--right");
 
+// Declare variables
 let currentSlide = 0;
 let numOfSlides = slides.length;
 
@@ -39,7 +40,7 @@ const previousSlide = () => {
   goToSlide(currentSlide);
 };
 
-// Event listeners for actions to be performed
+// Add event listeners to move between slides
 leftBtn.addEventListener("click", previousSlide);
 rightBtn.addEventListener("click", nextSlide);
 
