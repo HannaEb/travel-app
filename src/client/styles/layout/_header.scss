@@ -1,5 +1,5 @@
 .header {
-  height: 100vh;
+  height: 85vh;
 
   background-image: linear-gradient(
       rgba($color-primary-medium, 0.9),
@@ -33,7 +33,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -35%);
+    transform: translate(-50%, -25%);
     width: min-content;
   }
 
